@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title> </title>
+  </head>
+  <body>
+
+<!-- Menu -->
+    <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark box-shadow">
+      <a href="index.html" class="navbar-brand">
+        <img src="img/logo.svg" alt="AZ Sinistros">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir Navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="admin.html">Administração</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sinistros.html">Sinistros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="relatorios.html">Relatórios</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle ml-2 btn btn-secondary" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Bruna Dias
+              <span class="badge badge-info badge-pill">!</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <div>
+                <div class="list-group px-4 py-3">
+                  <a href="#" class="list-group-item list-group-item-action">Notificação 1</a>
+                  <a href="#" class="list-group-item list-group-item-action">Notificação 2</a>
+                  <a href="#" class="list-group-item list-group-item-action">Notificação 3</a>
+                  <a href="#" class="list-group-item list-group-item-action">Notificação 4</a>
+                  <a href="#" class="list-group-item list-group-item-action">Notificação 5</a>
+                </div>
+              </div>
+              <a class="dropdown-item" href="#">Editar Dados</a>
+              <a class="dropdown-item" href="#">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Tablist -->
+    <nav class="container py-4">
+      <div class="nav nav-tabs flex-column flex-sm-row" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="hospitais-tab" data-toggle="tab" href="#hospitais" role="tab" aria-controls="hospitais" aria-selected="true">Hospitais</a>
+        <a class="nav-item nav-link" id="medicos-tab" data-toggle="tab" href="#medicos" role="tab" aria-controls="medicos" aria-selected="false">Médicos</a>
+        <a class="nav-item nav-link" id="areas-tab" data-toggle="tab" href="#areas" role="tab" aria-controls="areas" aria-selected="false">Áreas</a>
+        <a class="nav-item nav-link" id="especialidades-tab" data-toggle="tab" href="#especialidades" role="tab" aria-controls="especialidades" aria-selected="false">Especialidades</a>
+        <a class="nav-item nav-link" id="lesoes-tab" data-toggle="tab" href="#lesoes" role="tab" aria-controls="lesoes" aria-selected="false">Lesões</a>
+        <a class="nav-item nav-link" id="usuarios-tab" data-toggle="tab" href="#usuarios" role="tab" aria-controls="usuarios" aria-selected="false">Usuários</a>
+        <a class="nav-item nav-link" id="status-tab" data-toggle="tab" href="#status" role="tab" aria-controls="status" aria-selected="false">Status</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+
+      <!-- Hospitais -->
+      <div class="tab-pane fade show active" id="hospitais" role="tabpanel" aria-labelledby="hospitais-tab">
+        <!-- Modal Adicionar-->
+        <div class="modal fade" id="adicionarHospital" tabindex="-1" role="dialog" aria-labelledby="adicionarHospital" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarHospitalTitulo">Adicionar Hospital</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeHospital">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeHospital">
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Visualizar-->
+        <div class="modal fade" id="infoHospital" tabindex="-1" role="dialog" aria-labelledby="infoHospital" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="infoHospitalTitulo">Info Hospital</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeHospital"><strong>Nome</strong></label>
+                      <input type="text" readonly class="form-control-plaintext" id="nomeHospital" value="Hospital Universitário da ULBRA">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar-->
+        <div class="modal fade" id="editarHospital" tabindex="-1" role="dialog" aria-labelledby="editarHospital" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarHospitalTitulo">Editar Hospital</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeHospital">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeHospital">
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm ml-auto">Excluir</button>
+                <button type="button" class="btn btn-primary btn-sm">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Hospitais -->
+        <section class="container">
+          <div class="row">
+            <div class="col-10">
+              <form class="form-row">
+                <div class="form-group col-2">
+                  <label for="idHospital" class="sr-only">ID</label>
+                  <input type="text" class="form-control form-control-sm" id="idHospital" placeholder="ID" data-toggle="tooltip" data-placement="top" title="ID">
+                </div>
+                <div class="form-group col-4">
+                  <label for="nomeHospital" class="sr-only">Hospital</label>
+                  <input type="text" class="form-control form-control-sm" id="nomeHospital" placeholder="Hospital" data-toggle="tooltip" data-placement="top" title="Hospital">
+                </div>
+                <div class="form-group col">
+                  <button type="submit" class="btn btn-sm btn-primary">Pesquisar <img class="pl-1" src="img/icon-search.png"></button>
+                </div>
+              </form>
+            </div>
+            <div class="col-2">
+              <button type="submit" class="btn btn-sm btn-secondary float-right mr-1" data-toggle="modal" data-target="#adicionarHospital">Adicionar <img class="pl-1" src="img/icon-plus.png"></button>
+            </div>
+          </div>
+        </section>
+        <section class="container py-2">
+          <table class="table table-hover table-sm table-responsive-md">
+            <thead class="thead-dark">
+              <tr class="d-flex">
+                <th class="col-1">ID</th>
+                <th class="col-8">Hospital</th>
+                <th class="col-3 text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="d-flex">
+                <td class="col-1">1</td>
+                <td class="col-8">Hospital Universitário da ULBRA</td>
+                <td class="col-3 text-center">
+                  <a href="#infoHospital" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#editarHospital" class="pl-4" data-toggle="modal">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+              <tr class="d-flex">
+                <td class="col-1">2</td>
+                <td class="col-8">Hospital São Pietro</td>
+                <td class="col-3 text-center">
+                  <a href="#">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+              <tr class="d-flex">
+                <td class="col-1">3</td>
+                <td class="col-8">Hospital de Aeronáutica de Canoas</td>
+                <td class="col-3 text-center">
+                  <a href="#">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+      <!-- Médicos -->
+      <div class="tab-pane fade" id="medicos" role="tabpanel" aria-labelledby="medicos-tab">
+        <!-- Modal Pesquisa-->
+        <div class="modal fade" id="pesquisaMedicos" tabindex="-1" role="dialog" aria-labelledby="pesquisaMedicos" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="pesquisaMedicosTitulo">Pesquisa Avançada</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    <form class="form-row">
+                      <div class="form-group col-2">
+                        <label for="idMedico" class="sr-only">ID</label>
+                        <input type="text" class="form-control form-control-sm" id="idMedico" placeholder="ID" data-toggle="tooltip" data-placement="top" title="ID">
+                      </div>
+                      <div class="form-group col-5">
+                        <label for="nomeMedico" class="sr-only">Médico</label>
+                        <input type="text" class="form-control form-control-sm" id="nomeMedico" placeholder="Médico" data-toggle="tooltip" data-placement="top" title="Médico">
+                      </div>
+                      <div class="form-group col-5">
+                        <label for="hospitalMedico" class="sr-only">Hospital</label>
+                        <input type="text" class="form-control form-control-sm" id="hospitalMedico" placeholder="Hospital" data-toggle="tooltip" data-placement="top" title="Hospital">
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="crmMedico" class="sr-only">CRM</label>
+                        <input type="text" class="form-control form-control-sm" id="crmMedico" placeholder="CRM" data-toggle="tooltip" data-placement="top" title="CRM">
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="cpfMedico" class="sr-only">CPF</label>
+                        <input type="text" class="form-control form-control-sm" id="cpfMedico" placeholder="CPF" data-toggle="tooltip" data-placement="top" title="CPF">
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="telMedico" class="sr-only">Telefone</label>
+                        <input type="text" class="form-control form-control-sm" id="telMedico" placeholder="Telefone" data-toggle="tooltip" data-placement="top" title="Telefone">
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="celMedico" class="sr-only">Celular</label>
+                        <input type="text" class="form-control form-control-sm" id="celMedico" placeholder="Celular" data-toggle="tooltip" data-placement="top" title="Celular">
+                      </div>
+                      <div class="form-group col-5">
+                        <label for="emailMedico" class="sr-only">E-mail</label>
+                        <input type="text" class="form-control form-control-sm" id="emailMedico" placeholder="E-mail" data-toggle="tooltip" data-placement="top" title="E-mail">
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="areaMedico" class="sr-only">Área</label>
+                        <input type="text" class="form-control form-control-sm" id="areaMedico" placeholder="Área" data-toggle="tooltip" data-placement="top" title="Área">
+                      </div>
+                      <div class="form-group col-4">
+                        <label for="especialidadeMedico" class="sr-only">Especialidade</label>
+                        <input type="text" class="form-control form-control-sm" id="especialidadeMedico" placeholder="Especialidade" data-toggle="tooltip" data-placement="top" title="Especialidade">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm">Pesquisar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Adicionar-->
+        <div class="modal fade" id="adicionarMedico" tabindex="-1" role="dialog" aria-labelledby="adicionarMedico" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarMedicoTitulo">Adicionar Médico</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row px-2">
+                    <form class="form-row ">
+                      <div class="form-group col-12">
+                        <label for="nomeMedico">Nome</label>
+                        <input type="text" class="form-control form-control-sm" id="nomeMedico">
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="hospitalMedico">Hospital</label>
+                        <input type="text" class="form-control form-control-sm" id="hospitalMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="crmMedico">CRM</label>
+                        <input type="text" class="form-control form-control-sm" id="crmMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="cpfMedico">CPF</label>
+                        <input type="text" class="form-control form-control-sm" id="cpfMedico">
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="emailMedico">E-mail</label>
+                        <input type="text" class="form-control form-control-sm" id="emailMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="telMedico">Telefone</label>
+                        <input type="text" class="form-control form-control-sm" id="telMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="celMedico">Celular</label>
+                        <input type="text" class="form-control form-control-sm" id="celMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="areaMedico">Área</label>
+                        <input type="text" class="form-control form-control-sm" id="areaMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="especialidadeMedico">Especialidade</label>
+                        <input type="text" class="form-control form-control-sm" id="especialidadeMedico">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Visualizar-->
+        <div class="modal fade" id="infoMedico" tabindex="-1" role="dialog" aria-labelledby="infoMedico" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="infoMedicoTitulo">Info Médico</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row px-2">
+                    <form class="form-row ">
+                      <div class="form-group col-12">
+                        <label for="nomeMedico"><strong>Nome</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="nomeMedico" value="Guilherme Silva Azevedo">
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="hospitalMedico"><strong>Hospital</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="hospitalMedico" value="Hospital Universitário da ULBRA">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="crmMedico"><strong>CRM</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="crmMedico" value="0000000000/RS">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="cpfMedico"><strong>CPF</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="cpfMedico" value="000.000.000-00">
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="emailMedico"><strong>E-mail</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="emailMedico" value="example@empresa.com.br">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="telMedico"><strong>Telefone</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="telMedico" value="(00)0000-0000">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="celMedico"><strong>Celular</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="celMedico" value="(00)00000-0000">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="areaMedico"><strong>Área</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="areaMedico" value="Fisioterapia">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="especialidadeMedico"><strong>Especialidade</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="especialidadeMedico" value="Fisioterapia Ocupacional">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar-->
+        <div class="modal fade" id="editarMedico" tabindex="-1" role="dialog" aria-labelledby="editarMedico" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarMedicoTitulo">Editar Médico</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row px-2">
+                    <form class="form-row ">
+                      <div class="form-group col-12">
+                        <label for="nomeMedico">Nome</label>
+                        <input type="text" class="form-control form-control-sm" id="nomeMedico">
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="hospitalMedico">Hospital</label>
+                        <input type="text" class="form-control form-control-sm" id="hospitalMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="crmMedico">CRM</label>
+                        <input type="text" class="form-control form-control-sm" id="crmMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="cpfMedico">CPF</label>
+                        <input type="text" class="form-control form-control-sm" id="cpfMedico">
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="emailMedico">E-mail</label>
+                        <input type="text" class="form-control form-control-sm" id="emailMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="telMedico">Telefone</label>
+                        <input type="text" class="form-control form-control-sm" id="telMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="celMedico">Celular</label>
+                        <input type="text" class="form-control form-control-sm" id="celMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="areaMedico">Área</label>
+                        <input type="text" class="form-control form-control-sm" id="areaMedico">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="especialidadeMedico">Especialidade</label>
+                        <input type="text" class="form-control form-control-sm" id="especialidadeMedico">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm ml-auto">Excluir</button>
+                <button type="button" class="btn btn-primary btn-sm">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Médicos -->
+        <section class="container">
+          <div class="row">
+            <div class="col-10">
+              <form class="form-row">
+                <div class="form-group col-2">
+                  <label for="idMedico" class="sr-only">ID</label>
+                  <input type="text" class="form-control form-control-sm" id="idMedico" placeholder="ID" data-toggle="tooltip" data-placement="top" title="ID">
+                </div>
+                <div class="form-group col-4">
+                  <label for="nomeMedico" class="sr-only">Hospital</label>
+                  <input type="text" class="form-control form-control-sm" id="nomeMedico" placeholder="Médico" data-toggle="tooltip" data-placement="top" title="Médico">
+                </div>
+                <div class="form-group col-4">
+                  <label for="hospitalMedico" class="sr-only">Hospital</label>
+                  <input type="text" class="form-control form-control-sm" id="hospitalMedico" placeholder="Hospital" data-toggle="tooltip" data-placement="top" title="Hospital">
+                </div>
+                <div class="form-group col-2">
+                  <button type="submit" class="btn btn-sm btn-primary">Pesquisar <img class="pl-1" src="img/icon-search.png"></button>
+                  <small id="pesquisaAvancada" class="text-muted">
+                    <a href="#pesquisaMedicos" data-toggle="modal">Pesquisa Avançada</a>
+                  </small>
+                </div>
+              </form>
+            </div>
+            <div class="col-2">
+              <button type="submit" class="btn btn-sm btn-secondary float-right mr-1" data-target="#adicionarMedico" data-toggle="modal">Adicionar <img class="pl-1" src="img/icon-plus.png"></button>
+            </div>
+          </div>
+        </section>
+        <section class="container py-2">
+          <table class="table table-hover table-sm table-responsive-md">
+            <thead class="thead-dark">
+              <tr class="d-flex">
+                <th class="col-1">ID</th>
+                <th class="col-3">Médico</th>
+                <th class="col-3">Hospital</th>
+                <th class="col-2">Área</th>
+                <th class="col-3 text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="d-flex">
+                <td class="col-1">1</td>
+                <td class="col-3 text-truncate">Guilherme Silva Azevedo</td>
+                <td class="col-3 text-truncate">Hospital Universitário da ULBRA</td>
+                <td class="col-2 text-truncate">Fisioterapia</td>
+                <td class="col-3 text-center">
+                  <a href="#infoMedico" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#editarMedico" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+              <tr class="d-flex">
+                <td class="col-1">2</td>
+                <td class="col-3 text-truncate">Felipe Pereira Ribeiro</td>
+                <td class="col-3 text-truncate">Hospital São Pietro</td>
+                <td class="col-2 text-truncate">Psiquiatria</td>
+                <td class="col-3 text-center">
+                  <a href="#">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+              <tr class="d-flex">
+                <td class="col-1">3</td>
+                <td class="col-3 text-truncate">Carla Costa Sousa</td>
+                <td class="col-3 text-truncate">Hospital de Aeronáutica de Canoas</td>
+                <td class="col-2 text-truncate">Fisioterapia</td>
+                <td class="col-3 text-center">
+                  <a href="#">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+      <!-- Áreas -->
+      <div class="tab-pane fade" id="areas" role="tabpanel" aria-labelledby="areas-tab">
+        <!-- Modal Adicionar-->
+        <div class="modal fade" id="adicionarArea" tabindex="-1" role="dialog" aria-labelledby="adicionarArea" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarAreaTitulo">Adicionar Área</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeArea">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeArea">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoArea">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoArea" rows="4"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Visualizar-->
+        <div class="modal fade" id="infoArea" tabindex="-1" role="dialog" aria-labelledby="infoArea" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="infoAreaTitulo">Info Área</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeArea"><strong>Nome</strong></label>
+                      <input type="text" readonly class="form-control-plaintext" id="nomeArea" value="Fisioterapia">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoArea"><strong>Descrição</strong></label>
+                      <textarea type="text" readonly class="form-control-plaintext" id="descricaoArea" rows="4">O incentivo ao avanço tecnológico, assim como o julgamento imparcial das eventualidades facilita a criação do sistema de participação geral.</textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar -->
+        <div class="modal fade" id="editarArea" tabindex="-1" role="dialog" aria-labelledby="editarArea" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarAreaTitulo">Editar Área</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeArea">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeArea">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoArea">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoArea" rows="4"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm ml-auto">Excluir</button>
+                <button type="button" class="btn btn-primary btn-sm">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Áreas -->
+        <section class="container">
+          <div class="row">
+            <div class="col-10">
+              <form class="form-row">
+                <div class="form-group col-2">
+                  <label for="idArea" class="sr-only">ID</label>
+                  <input type="text" class="form-control form-control-sm" id="idArea" placeholder="ID" data-toggle="tooltip" data-placement="top" title="ID">
+                </div>
+                <div class="form-group col-4">
+                  <label for="nomeArea" class="sr-only">Área</label>
+                  <input type="text" class="form-control form-control-sm" id="nomeArea" placeholder="Área" data-toggle="tooltip" data-placement="top" title="Área">
+                </div>
+                <div class="form-group col">
+                  <button type="submit" class="btn btn-sm btn-primary">Pesquisar <img class="pl-1" src="img/icon-search.png"></button>
+                </div>
+              </form>
+            </div>
+            <div class="col-2">
+              <button type="submit" class="btn btn-sm btn-secondary float-right mr-1" data-toggle="modal" data-target="#adicionarArea">Adicionar <img class="pl-1" src="img/icon-plus.png"></button>
+            </div>
+          </div>
+        </section>
+        <section class="container py-2">
+          <table class="table table-hover table-sm table-responsive-md">
+            <thead class="thead-dark">
+              <tr class="d-flex">
+                <th class="col-1">ID</th>
+                <th class="col-2">Área</th>
+                <th class="col-6">Descrição</th>
+                <th class="col-3 text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="d-flex">
+                <td class="col-1">1</td>
+                <td class="col-2">Fisioterapia</td>
+                <td class="col-6 text-truncate">O incentivo ao avanço tecnológico, assim como o julgamento imparcial das eventualidades facilita a criação do sistema de participação geral.</td>
+                <td class="col-3 text-center">
+                  <a href="#infoArea" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#editarArea" class="pl-4" data-toggle="modal">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+              <tr class="d-flex">
+                <td class="col-1">2</td>
+                <td class="col-2">Psiquiatria</td>
+                <td class="col-6 text-truncate">Podemos já vislumbrar o modo pelo qual a percepção das dificuldades estimula a padronização do investimento em reciclagem técnica.</td>
+                <td class="col-3 text-center">
+                  <a href="#">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+      <!-- Especialidades -->
+      <div class="tab-pane fade" id="especialidades" role="tabpanel" aria-labelledby="especialidades-tab">
+        <!-- Modal Adicionar-->
+        <div class="modal fade" id="adicionarEspecialidade" tabindex="-1" role="dialog" aria-labelledby="adicionarEspecialidade" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarEspecialidadeTitulo">Adicionar Especialidade</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeEspecialidade">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeEspecialidade">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="areaEspecialidade">Área</label>
+                      <select class="form-control form-control-sm" id="areaEspecialidade">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Fisioterapia</option>
+                        <option value="2">Psiquiatria</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoEspecialidade">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoEspecialidade" rows="4"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Visualizar-->
+        <div class="modal fade" id="infoEspecialidade" tabindex="-1" role="dialog" aria-labelledby="infoEspecialidade" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="infoEspecialidadeTitulo">Info Especialidade</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body">
+                  <div class="container">
+                    <form class="form-row">
+                      <div class="form-group col-12">
+                        <label for="nomeArea"><strong>Nome</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="nomeEspecialidade" value="Fisioterapia Funcional">
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="areaEspecialidade"><strong>Área</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="areaEspecialidade" value="Fisioterapia">
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="descricaoEspecialidade"><strong>Descrição</strong></label>
+                        <textarea type="text" readonly class="form-control-plaintext" id="descricaoEspecialidade" rows="4">O incentivo ao avanço tecnológico, assim como o julgamento imparcial das eventualidades facilita a criação do sistema de participação geral.</textarea>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar -->
+        <div class="modal fade" id="editarEspecialidade" tabindex="-1" role="dialog" aria-labelledby="editarEspecialidade" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarEspecialidadeTitulo">Editar Especialidade</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeEspecialidade">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeEspecialidade">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="areaEspecialidade">Área</label>
+                      <select class="form-control form-control-sm" id="areaEspecialidade">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Fisioterapia</option>
+                        <option value="2">Psiquiatria</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoEspecialidade">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoEspecialidade" rows="4"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm ml-auto">Excluir</button>
+                <button type="button" class="btn btn-primary btn-sm">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Especialidades -->
+        <section class="container">
+          <div class="row">
+            <div class="col-10">
+              <form class="form-row">
+                <div class="form-group col-2">
+                  <label for="idEspecialidade" class="sr-only">ID</label>
+                  <input type="text" class="form-control form-control-sm" id="idEspecialidade" placeholder="ID" data-toggle="tooltip" data-placement="top" title="ID">
+                </div>
+                <div class="form-group col-4">
+                  <label for="nomeEspecialidade" class="sr-only">Especialidade</label>
+                  <input type="text" class="form-control form-control-sm" id="nomeEspecialidade" placeholder="Especialidade" data-toggle="tooltip" data-placement="top" title="Especialidade">
+                </div>
+                <div class="form-group col-3">
+                  <label for="areaEspecialidade" class="sr-only">Área</label>
+                  <select class="form-control form-control-sm" id="areaEspecialidade">
+                    <option selected>Área</option>
+                    <option value="1">Fisioterapia</option>
+                    <option value="2">Psiquiatria</option>
+                  </select>
+                </div>
+                <div class="form-group col">
+                  <button type="submit" class="btn btn-sm btn-primary">Pesquisar <img class="pl-1" src="img/icon-search.png"></button>
+                </div>
+              </form>
+            </div>
+            <div class="col-2">
+              <button type="submit" class="btn btn-sm btn-secondary float-right mr-1" data-toggle="modal" data-target="#adicionarEspecialidade">Adicionar <img class="pl-1" src="img/icon-plus.png"></button>
+            </div>
+          </div>
+        </section>
+        <section class="container py-2">
+          <table class="table table-hover table-sm table-responsive-md">
+            <thead class="thead-dark">
+              <tr class="d-flex">
+                <th class="col-1">ID</th>
+                <th class="col-2">Especialidade</th>
+                <th class="col-2">Área</th>
+                <th class="col-4">Descrição</th>
+                <th class="col-3 text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="d-flex">
+                <td class="col-1">1</td>
+                <td class="col-2 text-truncate">Fisioterapia Ocupacional</td>
+                <td class="col-2">Fisioterapia</td>
+                <td class="col-4 text-truncate">Podemos já vislumbrar o modo pelo qual a percepção das dificuldades estimula a padronização do investimento em reciclagem técnica.</td>
+                <td class="col-3 text-center">
+                  <a href="#infoEspecialidade" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#editarEspecialidade" class="pl-4" data-toggle="modal">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+              <tr class="d-flex">
+                <td class="col-1">2</td>
+                <td class="col-2 text-truncate">Fisioterapia Funcional</td>
+                <td class="col-2">Fisioterapia</td>
+                <td class="col-4 text-truncate">Evidentemente, o desenvolvimento contínuo de distintas formas de atuação exige a precisão e a definição dos modos de operação convencionais.</td>
+                <td class="col-3 text-center">
+                  <a href="#">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+              <tr class="d-flex">
+                <td class="col-1">3</td>
+                <td class="col-2 text-truncate">Fisioterapia Respiratória</td>
+                <td class="col-2">Fisioterapia</td>
+                <td class="col-4 text-truncate">Acima de tudo, é fundamental ressaltar que a competitividade nas transações comerciais representa uma abertura para a melhoria das formas de ação.</td>
+                <td class="col-3 text-center">
+                  <a href="#">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+      <!-- Lesões -->
+      <div class="tab-pane fade" id="lesoes" role="tabpanel" aria-labelledby="lesoes-tab">
+        <!-- Modal Adicionar-->
+        <div class="modal fade" id="adicionarLesao" tabindex="-1" role="dialog" aria-labelledby="adicionarLesao" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarLesaoTitulo">Adicionar Lesão</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeLesao">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeLesao">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoLesao">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoLesao" rows="4"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Visualizar-->
+        <div class="modal fade" id="infoLesao" tabindex="-1" role="dialog" aria-labelledby="infoLesao" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="infoLesaoTitulo">Info Lesão</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body">
+                  <div class="container">
+                    <form class="form-row">
+                      <div class="form-group col-12">
+                        <label for="nomeLesao"><strong>Nome</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="nomeLesao" value="Lesão 1">
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="descricaoLesao"><strong>Descrição</strong></label>
+                        <textarea type="text" readonly class="form-control-plaintext" id="descricaoLesao" rows="4">O incentivo ao avanço tecnológico, assim como o julgamento imparcial das eventualidades facilita a criação do sistema de participação geral.</textarea>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar -->
+        <div class="modal fade" id="editarLesao" tabindex="-1" role="dialog" aria-labelledby="editarLesao" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarLesaoTitulo">Editar Lesão</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeLesao">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeLesao">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoLesao">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoLesao" rows="4"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm ml-auto">Excluir</button>
+                <button type="button" class="btn btn-primary btn-sm">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Lesões -->
+        <section class="container">
+          <div class="row">
+            <div class="col-10">
+              <form class="form-row">
+                <div class="form-group col-2">
+                  <label for="idLesao" class="sr-only">ID</label>
+                  <input type="text" class="form-control form-control-sm" id="idLesao" placeholder="ID" data-toggle="tooltip" data-placement="top" title="ID">
+                </div>
+                <div class="form-group col-4">
+                  <label for="nomeLesao" class="sr-only">Lesão</label>
+                  <input type="text" class="form-control form-control-sm" id="nomeLesao" placeholder="Lesão" data-toggle="tooltip" data-placement="top" title="Lesão">
+                </div>
+                <div class="form-group col">
+                  <button type="submit" class="btn btn-sm btn-primary">Pesquisar <img class="pl-1" src="img/icon-search.png"></button>
+                </div>
+              </form>
+            </div>
+            <div class="col-2">
+              <button type="submit" class="btn btn-sm btn-secondary float-right mr-1" data-toggle="modal" data-target="#adicionarLesao">Adicionar <img class="pl-1" src="img/icon-plus.png"></button>
+            </div>
+          </div>
+        </section>
+        <section class="container py-2">
+          <table class="table table-hover table-sm table-responsive-md">
+            <thead class="thead-dark">
+              <tr class="d-flex">
+                <th class="col-1">ID</th>
+                <th class="col-2">Lesão</th>
+                <th class="col-6">Descrição</th>
+                <th class="col-3 text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="d-flex">
+                <td class="col-1">1</td>
+                <td class="col-2">Lesão 1</td>
+                <td class="col-6 text-truncate">O incentivo ao avanço tecnológico, assim como o julgamento imparcial das eventualidades facilita a criação do sistema de participação geral.</td>
+                <td class="col-3 text-center">
+                  <a href="#infoLesao" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#editarLesao" class="pl-4" data-toggle="modal">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+              <tr class="d-flex">
+                <td class="col-1">2</td>
+                <td class="col-2">Lesão 2</td>
+                <td class="col-6 text-truncate">Podemos já vislumbrar o modo pelo qual a percepção das dificuldades estimula a padronização do investimento em reciclagem técnica.</td>
+                <td class="col-3 text-center">
+                  <a href="#">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+      <!-- Usuários -->
+      <div class="tab-pane fade" id="usuarios" role="tabpanel" aria-labelledby="usuarios-tab">
+        <!-- Modal Adicionar-->
+        <div class="modal fade" id="adicionarUsuario" tabindex="-1" role="dialog" aria-labelledby="adicionarUsuario" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarUsuarioTitulo">Adicionar Usuário</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeUsuario">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeUsuario">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="emailUsuario">E-mail</label>
+                      <input type="text" class="form-control form-control-sm" id="emailUsuario">
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="senhaUsuario">Senha</label>
+                      <input type="password" class="form-control form-control-sm" id="senhaUsuario">
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="nivelUsuario">Nível</label>
+                      <select class="form-control form-control-sm" id="nivelUsuario">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Administrador</option>
+                        <option value="2">Operacional</option>
+                        <option value="3">Seguradora</option>
+                        <option value="4">Corretora</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="seguradoraCorretora">Seguradora</label>
+                      <select class="form-control form-control-sm" id="nivelUsuario">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Opção 1</option>
+                        <option value="2">Opção 2</option>
+                      </select>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Visualizar-->
+        <div class="modal fade" id="infoUsuario" tabindex="-1" role="dialog" aria-labelledby="infoUsuario" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="infoUsuarioTitulo">Info Usuário</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body">
+                  <div class="container">
+                    <form class="form-row">
+                      <div class="form-group col-12">
+                        <label for="nomeUsuario"><strong>Nome</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="nomeUsuario" value="Breno Correia">
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="emailUsuario"><strong>E-mail</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="emailUsuario" value="breno@empresa.com.br">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="senhalUsuario"><strong>Senha</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="senhaUsuario" value="123456">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="nivelUsuario"><strong>Nível</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="nivelUsuario" value="Corretora">
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="seguradoraCorretora"><strong>Seguradora</strong></label>
+                        <textarea type="text" readonly class="form-control-plaintext" id="descricaoLesao" rows="4"> Seguradora 1 &#13;&#10; Seguradora 2 &#13;&#10; Seguradora 3 &#13;&#10; Seguradora 4 &#13;&#10; Seguradora 5
+                        </textarea>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar -->
+        <div class="modal fade" id="editarUsuario" tabindex="-1" role="dialog" aria-labelledby="editarUsuario" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarUsuarioTitulo">Editar Usuário</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeUsuario">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeUsuario">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="emailUsuario">E-mail</label>
+                      <input type="text" class="form-control form-control-sm" id="emailUsuario">
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="senhaUsuario">Senha</label>
+                      <input type="password" class="form-control form-control-sm" id="senhaUsuario">
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="nivelUsuario">Nível</label>
+                      <select class="form-control form-control-sm" id="nivelUsuario">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Administrador</option>
+                        <option value="2">Operacional</option>
+                        <option value="3">Seguradora</option>
+                        <option value="4">Corretora</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="seguradoraCorretora">Seguradora</label>
+                      <select class="form-control form-control-sm" id="nivelUsuario">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Opção 1</option>
+                        <option value="2">Opção 2</option>
+                      </select>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm ml-auto">Excluir</button>
+                <button type="button" class="btn btn-primary btn-sm">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Usuários -->
+        <section class="container">
+          <div class="row">
+            <div class="col-10">
+              <form class="form-row">
+                <div class="form-group col-2">
+                  <label for="idUsuario" class="sr-only">ID</label>
+                  <input type="text" class="form-control form-control-sm" id="idUsuario" placeholder="ID" data-toggle="tooltip" data-placement="top" title="ID">
+                </div>
+                <div class="form-group col-4">
+                  <label for="nomeUsuario" class="sr-only">Nome</label>
+                  <input type="text" class="form-control form-control-sm" id="nomeUsuario" placeholder="Nome" data-toggle="tooltip" data-placement="top" title="Nome">
+                </div>
+                <div class="form-group col-3">
+                  <label for="nivelUsuario" class="sr-only">Nível</label>
+                  <select class="form-control form-control-sm" id="nivelUsuario">
+                    <option selected>Nível</option>
+                    <option value="1">Administrador</option>
+                    <option value="2">Operacional</option>
+                    <option value="3">Seguradora</option>
+                    <option value="4">Corretora</option>
+                  </select>
+                </div>
+                <div class="form-group col">
+                  <button type="submit" class="btn btn-sm btn-primary">Pesquisar <img class="pl-1" src="img/icon-search.png"></button>
+                </div>
+              </form>
+            </div>
+            <div class="col-2">
+              <button type="submit" class="btn btn-sm btn-secondary float-right mr-1" data-target="#adicionarUsuario" data-toggle="modal">Adicionar <img class="pl-1" src="img/icon-plus.png"></button>
+            </div>
+          </div>
+        </section>
+        <section class="container py-2">
+          <table class="table table-hover table-sm table-responsive-md">
+            <thead class="thead-dark">
+              <tr class="d-flex">
+                <th class="col-1">ID</th>
+                <th class="col-2">Nome</th>
+                <th class="col-4">Login</th>
+                <th class="col-2">Nível</th>
+                <th class="col-3 text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="d-flex">
+                <td class="col-1">1</td>
+                <td class="col-2 text-truncate">Breno Correia</td>
+                <td class="col-4 text-truncate">breno@empresa.com.br</td>
+                <td class="col-2">Corretora</td>
+                <td class="col-3 text-center">
+                  <a href="#infoUsuario" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#editarUsuario" class="pl-4" data-toggle="modal">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+              <tr class="d-flex">
+                <td class="col-1">2</td>
+                <td class="col-2 text-truncate">Sandro Costa</td>
+                <td class="col-4 text-truncate">sandro@azsinistros.com.br</td>
+                <td class="col-2">Administrador</td>
+                <td class="col-3 text-center">
+                  <a href="#">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+              <tr class="d-flex">
+                <td class="col-1">3</td>
+                <td class="col-2 text-truncate">Luis Dias</td>
+                <td class="col-4 text-truncate">luis.dias@empresa.com.br</td>
+                <td class="col-2">Seguradora</td>
+                <td class="col-3 text-center">
+                  <a href="#">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+      <!-- Status -->
+      <div class="tab-pane fade" id="status" role="tabpanel" aria-labelledby="status-tab">
+      <!-- Modal Adicionar-->
+        <div class="modal fade" id="adicionarStatus" tabindex="-1" role="dialog" aria-labelledby="adicionarStatus" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarStatusTitulo">Adicionar Status</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeStatus">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeStatus">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="corStatus">Cor</label>
+                      <input type="color" class="form-control form-control-sm" id="corStatus">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoStatus">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoStatus" rows="4"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar -->
+        <div class="modal fade" id="editarStatus" tabindex="-1" role="dialog" aria-labelledby="editarStatus" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarStatusTitulo">Editar Status</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeStatus">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeStatus">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="corStatus">Cor</label>
+                      <input type="color" class="form-control form-control-sm" value="#28a745" id="corStatus">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoStatus">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoStatus" rows="4"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm ml-auto">Excluir</button>
+                <button type="button" class="btn btn-primary btn-sm">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- Conteúdo Status-->
+        <section class="container">
+          <div class="row pb-3">
+            <div class="offset-10">
+            </div>
+            <div class="col-2">
+              <button type="submit" class="btn btn-sm btn-secondary float-right mr-1" data-toggle="modal" data-target="#adicionarStatus">Adicionar <img class="pl-1" src="img/icon-plus.png"></button>
+            </div>
+          </div>
+        </section>
+        <section class="container py-2">
+          <table class="table table-hover table-sm table-responsive-md">
+            <thead class="thead-dark">
+              <tr class="d-flex">
+                <th class="col-1">ID</th>
+                <th class="col-2">Nome</th>
+                <th class="col-5">Descrição</th>
+                <th class="col-2 text-center">Cor</th>
+                <th class="col-2 text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="d-flex">
+                <td class="col-1">1</td>
+                <td class="col-2">Concluído</td>
+                <td class="col-5">O incentivo ao avanço tecnológico, assim como o julgamento imparcial das eventualidades.</td>
+                <td class="col-2 text-center">
+                  <div class="cor-status" style="background-color: #28a745">
+                  </div>
+                </td>
+                <td class="col-2 text-center">
+                  <a href="#editarStatus" data-toggle="modal">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+              <tr class="d-flex">
+                <td class="col-1">2</td>
+                <td class="col-2">Pendente</td>
+                <td class="col-5">O incentivo ao avanço tecnológico, assim como o julgamento imparcial das eventualidades facilita a criação do sistema de participação geral.</td>
+                <td class="col-2 text-center">
+                  <div class="cor-status" style="background-color: #ffc107">
+                  </div>
+                </td>
+                <td class="col-2 text-center">
+                  <a href="#">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
