@@ -16,3 +16,36 @@ body {
   padding: 0.5rem 3rem;
   border-radius: 0.3rem;
 }
+
+.btn-wide {
+  width: 100px;
+}
+
+.icon {
+  vertical-align: -0.25em;
+}
+
+.notifications {
+  min-width:420px;
+}
+
+.notifications-wrapper {
+  overflow:auto;
+  max-height:250px;
+}
+
+.notifications a.content {
+  text-decoration:none;
+}
+
+.notification-item {
+  color: #16181b;
+  background-color: #f8f9fa;
+  border-radius:0.3rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.notification-item:hover {
+  background-color: #d6d8db;
+}
