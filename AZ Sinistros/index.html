@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/pace-theme-minimal.css">
-    <title>AZ Sinistros - Administração </title>
+    <title>AZ Sinistros - Administração</title>
   </head>
   <body>
 
@@ -38,32 +38,32 @@
             <div class="dropdown-menu dropdown-menu-right notifications" aria-labelledby="navbarDropdown">
               <div class="notifications-wrapper">
                 <a class="content" href="#">
-                  <div class="notification-item">
+                  <div class="notification-item box-shadow">
                     <p>Notificação 1</p>
                   </div>
                 </a>
                 <a class="content" href="#">
-                  <div class="notification-item">
+                  <div class="notification-item box-shadow">
                     <p>Notificação 2</p>
                   </div>
                 </a>
                 <a class="content" href="#">
-                  <div class="notification-item">
+                  <div class="notification-item box-shadow">
                     <p>Notificação 3</p>
                   </div>
                 </a>
                 <a class="content" href="#">
-                  <div class="notification-item">
+                  <div class="notification-item box-shadow">
                     <p>Notificação 4</p>
                   </div>
                 </a>
                 <a class="content" href="#">
-                  <div class="notification-item">
+                  <div class="notification-item box-shadow">
                     <p>Notificação 5</p>
                   </div>
                 </a>
                 <a class="content" href="#">
-                  <div class="notification-item">
+                  <div class="notification-item box-shadow">
                     <p>Notificação 6</p>
                   </div>
                 </a>
@@ -182,6 +182,30 @@
             </div>
           </div>
         </div>
+        <!-- Modal Logs-->
+        <div class="modal fade" id="logs" tabindex="-1" role="dialog" aria-labelledby="logs" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="infoHospitalTitulo">Logs</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row px-3">
+                    <ul class="list-unstyled pb-0">
+                      <li class="pt-2"><u>12/12/2018 02:03:54</u> "Inativação do cadastro", por usuário <em>sergio@azsinistros.com.br</em></li>
+                      <li class="pt-2"><u>11/12/2018 02:03:54</u> "Alteração" de nome para Hospital Universitário da ULBRA, por usuário <em>sergio@azsinistros.com.br</em></li>
+                      <li class="pt-2"><u>11/12/2018 02:03:54</u> "Criação do cadastro", nome Hospital São Pietro, por usuário <em>sergio@azsinistros.com.br</em></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- Conteúdo Hospitais -->
         <section class="container">
           <div class="row">
@@ -196,12 +220,12 @@
                   <input type="text" class="form-control form-control-sm" id="nomeHospital" placeholder="Hospital" data-toggle="tooltip" data-placement="top" title="Hospital">
                 </div>
                 <div class="form-group col">
-                  <button type="submit" class="btn btn-sm btn-primary">Pesquisar <img class="icon" src="img/icon-search.png"></span></button>
+                  <button type="submit" class="btn btn-sm btn-primary">Pesquisar <img class="pl-1" src="img/icon-search.png"></button>
                 </div>
               </form>
             </div>
             <div class="col-2">
-              <button type="submit" class="btn btn-sm btn-secondary float-right mr-1" data-toggle="modal" data-target="#adicionarHospital">Adicionar <img class="icon" src="img/icon-plus.png"></span></button>
+              <button type="submit" class="btn btn-sm btn-secondary float-right mr-1" data-toggle="modal" data-target="#adicionarHospital">Adicionar <img class="pl-1" src="img/icon-plus.png"></button>
             </div>
           </div>
         </section>
@@ -216,11 +240,11 @@
             </thead>
             <tbody>
               <tr class="d-flex">
-                <td class="col-1">1</td>
+                <td class="col-1" data-toggle="modal" data-target="#logs">1</td>
                 <td class="col-8">Hospital Universitário da ULBRA</td>
                 <td class="col-3 text-center">
-                  <a href="#infoHospital" data-toggle="modal">Detalhes <img class="icon" src="img/icon-view.png"></span></a>
-                  <a href="#editarHospital" class="pl-4" data-toggle="modal">Editar <img class="icon" src="img/icon-edit.png"></span></a>
+                  <a href="#infoHospital" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                  <a href="#editarHospital" class="pl-4" data-toggle="modal">Editar <img class="pl-1" src="img/icon-edit.png"></a>
                 </td>
               </tr>
               <tr class="d-flex table-secondary">
