@@ -62,3 +62,47 @@ body {
   display: inline;
   float: right;
 }
+
+.timeline .card{
+  border-radius: 0.5rem;
+}
+
+.timeline .card-body {
+  padding: 0.75rem;
+}
+
+.timeline .card-body p {
+  margin-bottom: 0.75rem;
+}
+
+.timeline .timeline-data{
+  margin-bottom: 0.50rem;
+}
+
+.timeline .timeline-horario {
+  line-height: 1;
+}
+
+.timeline-mensagem {
+  border-color: #007bff !important;
+}
+
+.timeline-anexo {
+  border-color: #dc3545 !important;
+}
+
+.timeline-lesao {
+  border-color: #6f42c1 !important;
+}
+
+.timeline-despesa {
+  border-color: #ffc107 !important;
+}
+
+.timeline-consulta {
+  border-color: #28a745 !important;
+}
+
+.timeline-status {
+  border-color: #6c757d !important;
+}

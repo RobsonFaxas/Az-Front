@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>AZ Sinistros - Vítima</title>
+  </head>
+  <body>
+
+<!-- Menu -->
+    <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark box-shadow">
+      <a href="admin.html" class="navbar-brand">
+        <img src="img/logo.svg" alt="AZ Sinistros">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir Navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="admin.html">Administração</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sinistros.html">Sinistros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="relatorios.html">Relatórios</a>
+          </li>
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle ml-2 btn btn-secondary" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Bruna Dias
+              <span class="badge badge-info badge-pill">4</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right notifications" aria-labelledby="navbarDropdown">
+              <div class="notifications-wrapper">
+                <a class="content" href="#">
+                  <div class="notification-item box-shadow">
+                    <p>Notificação 1</p>
+                  </div>
+                </a>
+                <a class="content" href="#">
+                  <div class="notification-item box-shadow">
+                    <p>Notificação 2</p>
+                  </div>
+                </a>
+                <a class="content" href="#">
+                  <div class="notification-item box-shadow">
+                    <p>Notificação 3</p>
+                  </div>
+                </a>
+                <a class="content" href="#">
+                  <div class="notification-item box-shadow">
+                    <p>Notificação 4</p>
+                  </div>
+                </a>
+                <a class="content" href="#">
+                  <div class="notification-item box-shadow">
+                    <p>Notificação 5</p>
+                  </div>
+                </a>
+                <a class="content" href="#">
+                  <div class="notification-item box-shadow">
+                    <p>Notificação 6</p>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div>
+                <a class="dropdown-item text-primary" href="#">Editar Dados</a>
+                <a class="dropdown-item text-primary" href="#">Logout</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="container pt-4">
+      <nav aria-label="breadcrumb">
+        <a href="#">&lt; Sinistro nº 1002300010266</a>
+      </nav>
+    </section>
+
+    <!-- Tablist-->
+    <nav class="container py-4">
+      <div class="nav nav-tabs flex-column flex-sm-row" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="geral-tab" data-toggle="tab" href="#geral" role="tab" aria-controls="geral" aria-selected="true">Geral</a>
+        <a class="nav-item nav-link" id="arquivos-tab" data-toggle="tab" href="#arquivos" role="tab" aria-controls="arquivos" aria-selected="false">Arquivos</a>
+        <a class="nav-item nav-link" id="mensagens-tab" data-toggle="tab" href="#mensagens" role="tab" aria-controls="mensagens" aria-selected="false">Mensagens</a>
+        <a class="nav-item nav-link" id="despesas-tab" data-toggle="tab" href="#despesas" role="tab" aria-controls="despesas" aria-selected="false">Coberturas e Despesas</a>
+        <a class="nav-item nav-link" id="lesoes-tab" data-toggle="tab" href="#lesoes" role="tab" aria-controls="lesoes" aria-selected="false">Lesões</a>
+        <a class="nav-item nav-link" id="consultas-tab" data-toggle="tab" href="#consultas" role="tab" aria-controls="consultas" aria-selected="false">Hospitais e Médicos</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+
+      <!-- Conteúdo Geral -->
+      <section class="container">
+        <div class="row pb-3">
+          <div class="offset-9">
+          </div>
+          <div class="col-3">
+            <div class="float-right">
+              <button type="submit" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#adicionarStatus">Editar</button>
+              <button type="submit" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#adicionarStatus">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="container">
+        <div class="row">
+          <div class="col">
+
+
+            <div class="bg-light">
+
+
+            <p><strong>Nome: </strong>Guilherme Silva Azevedo</p>
+            <p>
+              <strong>Status: </strong>
+              <div class="cor-status" style="background-color: #28a745" data-toggle="tooltip" data-placement="top" title="Aguardando Laudo">
+              </div>
+            </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline -->
+      <section class="container timeline py-2">
+        <p class="h5 text-center">Timeline</p>
+        <div class="row py-2">
+          <p class="pl-3 text-muted timeline-data"><strong>26/12</strong></p>
+          <div class="col-12 pb-2">
+            <div class="card timeline-mensagem">
+                <div class="card-body">
+                  <p class="card-text">Adicionada mensagem assunto <em>"RES: REF. PACIENTE EDSON ALVES DE LIMA" </em> e 3 anexos</p>
+                  <div class="float-right timeline-horario"><small class="text-muted">17:17</small></div>
+                </div>
+            </div>
+          </div>
+          <div class="col-12 pb-2">
+            <div class="card timeline-anexo">
+                <div class="card-body">
+                  <p class="card-text">Adicionados anexo(s) <em>"DadosBancarios.docx"</em>, <em>"ComprovanteCorreiosR$66,95.pdf"</em>, <em>"doctosveiculosegurado.jpg"</em></p>
+                  <div class="float-right timeline-horario"><small class="text-muted">17:17</small></div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row py-2">
+          <p class="pl-3 text-muted timeline-data"><strong>25/12</strong></p>
+          <div class="col-12 pb-2">
+            <div class="card timeline-lesao">
+                <div class="card-body">
+                  <p class="card-text">Adicionada lesão do tipo <em>"Fratura de Bacia"</em></p>
+                  <div class="float-right timeline-horario"><small class="text-muted">10:15</small></div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row py-2">
+          <p class="pl-3 text-muted timeline-data"><strong>24/12</strong></p>
+          <div class="col-12 pb-2">
+            <div class="card timeline-despesa">
+                <div class="card-body">
+                  <p class="card-text">Adicionada despesa APP descrição <em>"A prática cotidiana prova que a valorização de fatores subjetivos agrega valor ao estabelecimento do processo de comunicação como um todo."</em></p>
+                  <div class="float-right timeline-horario"><small class="text-muted">14:40</small></div>
+                </div>
+            </div>
+          </div>
+          <div class="col-12 pb-2">
+            <div class="card timeline-consulta">
+                <div class="card-body">
+                  <p class="card-text">Adicionada consulta descrição <em>"Por outro lado, a adoção de políticas descentralizadoras obstaculiza a apreciação da importância do retorno esperado a"</em></p>
+                  <div class="float-right timeline-horario"><small class="text-muted">13:10</small></div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row py-2">
+          <p class="pl-3 text-muted timeline-data"><strong>20/12</strong></p>
+          <div class="col-12 pb-2">
+            <div class="card timeline-status">
+                <div class="card-body">
+                  <p class="card-text">Cadastro criado, status <em>"Aguardando laudo médico"</em></p>
+                  <div class="float-right timeline-horario"><small class="text-muted">16:35</small></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
