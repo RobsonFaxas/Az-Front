@@ -63,6 +63,10 @@ body {
   float: right;
 }
 
+.descricao-vitima .cor-status {
+  padding: 0.5rem 5rem;
+}
+
 .timeline .card{
   border-radius: 0.5rem;
 }
@@ -72,7 +76,7 @@ body {
 }
 
 .timeline .card-body p {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0rem;
 }
 
 .timeline .timeline-data{
@@ -105,4 +109,29 @@ body {
 
 .timeline-status {
   border-color: #6c757d !important;
+}
+
+.dropdown-anexo:hover {
+  background-color: rgba(220,53,69, 0.5);
+  border-radius:0.3rem;
+}
+
+.dropdown-mensagem:hover {
+  background-color: rgba(0,123,255, 0.5);
+  border-radius:0.3rem;
+}
+
+.dropdown-despesa:hover {
+  background-color: rgba(255,193,7, 0.5);
+  border-radius:0.3rem;
+}
+
+.dropdown-lesao:hover {
+  background-color: rgba(111,66,193, 0.5);
+  border-radius:0.3rem;
+}
+
+.dropdown-consulta:hover {
+  background-color: rgba(40,167,69, 0.5);
+  border-radius:0.3rem;
 }

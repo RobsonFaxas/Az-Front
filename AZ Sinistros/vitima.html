@@ -90,109 +90,339 @@
         <a class="nav-item nav-link active" id="geral-tab" data-toggle="tab" href="#geral" role="tab" aria-controls="geral" aria-selected="true">Geral</a>
         <a class="nav-item nav-link" id="arquivos-tab" data-toggle="tab" href="#arquivos" role="tab" aria-controls="arquivos" aria-selected="false">Arquivos</a>
         <a class="nav-item nav-link" id="mensagens-tab" data-toggle="tab" href="#mensagens" role="tab" aria-controls="mensagens" aria-selected="false">Mensagens</a>
-        <a class="nav-item nav-link" id="despesas-tab" data-toggle="tab" href="#despesas" role="tab" aria-controls="despesas" aria-selected="false">Coberturas e Despesas</a>
+        <a class="nav-item nav-link" id="despesas-tab" data-toggle="tab" href="#despesas" role="tab" aria-controls="despesas" aria-selected="false">Despesas</a>
         <a class="nav-item nav-link" id="lesoes-tab" data-toggle="tab" href="#lesoes" role="tab" aria-controls="lesoes" aria-selected="false">Lesões</a>
         <a class="nav-item nav-link" id="consultas-tab" data-toggle="tab" href="#consultas" role="tab" aria-controls="consultas" aria-selected="false">Hospitais e Médicos</a>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-
-      <!-- Conteúdo Geral -->
-      <section class="container">
-        <div class="row pb-3">
-          <div class="offset-9">
-          </div>
-          <div class="col-3">
-            <div class="float-right">
-              <button type="submit" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#adicionarStatus">Editar</button>
-              <button type="submit" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#adicionarStatus">Adicionar</button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="container">
-        <div class="row">
-          <div class="col">
-
-
-            <div class="bg-light">
-
-
-            <p><strong>Nome: </strong>Guilherme Silva Azevedo</p>
-            <p>
-              <strong>Status: </strong>
-              <div class="cor-status" style="background-color: #28a745" data-toggle="tooltip" data-placement="top" title="Aguardando Laudo">
+      <!-- GERAL -->
+      <div class="tab-pane fade show active" id="geral" role="tabpanel" aria-labelledby="geral-tab">
+        <!-- Modal Editar Vítima-->
+        <div class="modal fade" id="editarVitima" tabindex="-1" role="dialog" aria-labelledby="editarVitima" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarVitimaTitulo">Editar Vítima</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-            </p>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeVitima">Nome</label>
+                      <input type="text" class="form-control form-control-sm" id="nomeVitima">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoVitima">Descrição / Histórico</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoVitima" rows="4"></textarea>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="statusVitima">Status</label>
+                      <select class="form-control form-control-sm" id="statusVitima">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Opção 1</option>
+                        <option value="2">Opção 2</option>
+                      </select>
+                    </div>
+                  </form>
+                  <div class="row mb-1">
+                    <div class="col">
+                      <a href="#avisoExclusao" data-toggle="modal" class="badge badge-danger">Excluir Vítima</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-wide">Salvar</button>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+        <!-- Aviso Exclusão Vítima -->
+        <div class="modal fade" id="avisoExclusao" tabindex="-1" role="dialog" aria-labelledby="avisoExclusao" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row py-2">
+                    <p class="col-12 text-center">Deseja realmente excluir esta vítima?</p>
+                    <p class="col-12 text-center">Após confirmação, NÃO será possível recuperar os anexos, mensagens e demais informações cadastradas.</p>
+                  </div>
+                  <div class="row pb-3 pt-2">
+                    <div class="col-6">
+                      <button type="button" class="btn btn-secondary btn-sm btn-wide float-right">Cancelar</button>
+                    </div>
+                    <div class="col-6">
+                      <button type="button" class="btn btn-danger btn-sm btn-wide">Excluir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Geral -->
+        <section class="container">
+          <div class="row pb-3">
+            <div class="offset-9">
+            </div>
+            <div class="col-3">
+              <div class="float-right dropdown">
+                <button type="submit" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#editarVitima">Editar</button>
+                <button type="submit" class="btn btn-sm btn-primary" href="#" role="button" id="dropdownAdicionar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adicionar</button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownAdicionar">
+                  <a class="dropdown-item dropdown-anexo" href="#">Arquivos</a>
+                  <a class="dropdown-item dropdown-mensagem" href="#">Mensagens</a>
+                  <a class="dropdown-item dropdown-despesa" href="#">Despesas</a>
+                  <a class="dropdown-item dropdown-lesao" href="#">Lesões</a>
+                  <a class="dropdown-item dropdown-consulta" href="#">Consultas</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="container">
+          <div class="row">
+            <div class="col">
+              <div class="descricao-vitima bg-light p-3 box-shadow">
+                <p><strong>Nome: </strong>Guilherme Silva Azevedo</p>
+                <p>
+                  <strong class="float-left mr-2">Status: </strong>
+                  <div class="cor-status" style="background-color: #28a745" data-toggle="tooltip" data-placement="top" title="Aguardando Laudo">
+                  </div>
+                </p>
+                <p><strong>Descrição: </strong>Vitima com fratura cominutiva do plateal tibial e com extensao diafisaria.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <!-- Timeline -->
-      <section class="container timeline py-2">
-        <p class="h5 text-center">Timeline</p>
-        <div class="row py-2">
-          <p class="pl-3 text-muted timeline-data"><strong>26/12</strong></p>
-          <div class="col-12 pb-2">
-            <div class="card timeline-mensagem">
-                <div class="card-body">
-                  <p class="card-text">Adicionada mensagem assunto <em>"RES: REF. PACIENTE EDSON ALVES DE LIMA" </em> e 3 anexos</p>
-                  <div class="float-right timeline-horario"><small class="text-muted">17:17</small></div>
+        <!-- Timeline -->
+        <section class="container timeline py-4">
+          <p class="h5 text-center">Timeline</p>
+          <div class="row">
+            <div class="offset-9">
+            </div>
+            <div class="col-3">
+              <form class="form-inline float-right">
+                <div class="form-group">
+                  <label for="filtroTimeline" class="mr-3">Mostrar:</label>
+                  <select id="filtroTimeline" class="form-control form-control-sm">
+                    <option selected>Todos</option>
+                    <option>Arquivos</option>
+                    <option>Mensagens</option>
+                    <option>Despesas</option>
+                    <option>Lesões</option>
+                    <option>Consultas</option>
+                    <option>Status</option>
+                  </select>
                 </div>
+              </form>
             </div>
           </div>
-          <div class="col-12 pb-2">
-            <div class="card timeline-anexo">
-                <div class="card-body">
-                  <p class="card-text">Adicionados anexo(s) <em>"DadosBancarios.docx"</em>, <em>"ComprovanteCorreiosR$66,95.pdf"</em>, <em>"doctosveiculosegurado.jpg"</em></p>
-                  <div class="float-right timeline-horario"><small class="text-muted">17:17</small></div>
-                </div>
+          <div class="row py-2">
+            <p class="pl-3 text-muted timeline-data"><strong>26/12</strong></p>
+            <div class="col-12 pb-2">
+              <div class="card timeline-mensagem">
+                  <div class="card-body">
+                    <p class="card-text">Adicionada mensagem assunto <em>"RES: REF. PACIENTE EDSON ALVES DE LIMA" </em> e 3 anexos</p>
+                    <div class="float-right timeline-horario"><small class="text-muted">17:17</small></div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-12 pb-2">
+              <div class="card timeline-anexo">
+                  <div class="card-body">
+                    <p class="card-text">Adicionados anexo(s) <em>"DadosBancarios.docx"</em>, <em>"ComprovanteCorreiosR$66,95.pdf"</em>, <em>"doctosveiculosegurado.jpg"</em></p>
+                    <div class="float-right timeline-horario"><small class="text-muted">17:17</small></div>
+                  </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row py-2">
-          <p class="pl-3 text-muted timeline-data"><strong>25/12</strong></p>
-          <div class="col-12 pb-2">
-            <div class="card timeline-lesao">
-                <div class="card-body">
-                  <p class="card-text">Adicionada lesão do tipo <em>"Fratura de Bacia"</em></p>
-                  <div class="float-right timeline-horario"><small class="text-muted">10:15</small></div>
-                </div>
+          <div class="row py-2">
+            <p class="pl-3 text-muted timeline-data"><strong>25/12</strong></p>
+            <div class="col-12 pb-2">
+              <div class="card timeline-lesao">
+                  <div class="card-body">
+                    <p class="card-text">Adicionada lesão do tipo <em>"Fratura de Bacia"</em></p>
+                    <div class="float-right timeline-horario"><small class="text-muted">10:15</small></div>
+                  </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row py-2">
-          <p class="pl-3 text-muted timeline-data"><strong>24/12</strong></p>
-          <div class="col-12 pb-2">
-            <div class="card timeline-despesa">
-                <div class="card-body">
-                  <p class="card-text">Adicionada despesa APP descrição <em>"A prática cotidiana prova que a valorização de fatores subjetivos agrega valor ao estabelecimento do processo de comunicação como um todo."</em></p>
-                  <div class="float-right timeline-horario"><small class="text-muted">14:40</small></div>
-                </div>
+          <div class="row py-2">
+            <p class="pl-3 text-muted timeline-data"><strong>24/12</strong></p>
+            <div class="col-12 pb-2">
+              <div class="card timeline-despesa">
+                  <div class="card-body">
+                    <p class="card-text">Adicionada despesa APP descrição <em>"A prática cotidiana prova que a valorização de fatores subjetivos agrega valor ao estabelecimento do processo de comunicação como um todo."</em></p>
+                    <div class="float-right timeline-horario"><small class="text-muted">14:40</small></div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-12 pb-2">
+              <div class="card timeline-consulta">
+                  <div class="card-body">
+                    <p class="card-text">Adicionada consulta descrição <em>"Por outro lado, a adoção de políticas descentralizadoras obstaculiza a apreciação da importância do retorno esperado a"</em></p>
+                    <div class="float-right timeline-horario"><small class="text-muted">13:10</small></div>
+                  </div>
+              </div>
             </div>
           </div>
-          <div class="col-12 pb-2">
-            <div class="card timeline-consulta">
-                <div class="card-body">
-                  <p class="card-text">Adicionada consulta descrição <em>"Por outro lado, a adoção de políticas descentralizadoras obstaculiza a apreciação da importância do retorno esperado a"</em></p>
-                  <div class="float-right timeline-horario"><small class="text-muted">13:10</small></div>
-                </div>
+          <div class="row py-2">
+            <p class="pl-3 text-muted timeline-data"><strong>20/12</strong></p>
+            <div class="col-12 pb-2">
+              <div class="card timeline-status">
+                  <div class="card-body">
+                    <p class="card-text">Cadastro criado, status <em>"Aguardando laudo médico"</em></p>
+                    <div class="float-right timeline-horario"><small class="text-muted">16:35</small></div>
+                  </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row py-2">
-          <p class="pl-3 text-muted timeline-data"><strong>20/12</strong></p>
-          <div class="col-12 pb-2">
-            <div class="card timeline-status">
+        </section>
+      </div>
+
+      <!-- ARQUIVOS -->
+      <div class="tab-pane fade" id="arquivos" role="tabpanel" aria-labelledby="arquivos-tab">
+        Arquivos
+      </div>
+
+      <!-- MENSAGENS -->
+      <div class="tab-pane fade" id="mensagens" role="tabpanel" aria-labelledby="mensagens-tab">
+        Mensagens
+      </div>
+
+      <!-- DESPESAS -->
+      <div class="tab-pane fade" id="despesas" role="tabpanel" aria-labelledby="despesas-tab">
+        <section class="container pt-3 pb-5">
+          <div class="accordion" id="accordionDespesas">
+            <div class="card">
+              <div class="card-header" id="tituloDPVAT">
+                <h6 class="p-2 m-0" data-toggle="collapse" data-target="#collapseDPVAT" aria-expanded="true" aria-controls="collapseDPVAT">
+                  DPVAT
+                </h6>
+              </div>
+              <div id="collapseDPVAT" class="collapse" aria-labelledby="tituloDPVAT" data-parent="#accordionDespesas">
                 <div class="card-body">
-                  <p class="card-text">Cadastro criado, status <em>"Aguardando laudo médico"</em></p>
-                  <div class="float-right timeline-horario"><small class="text-muted">16:35</small></div>
+                  <div class="row pb-3">
+                    <div class="offset-10">
+                    </div>
+                    <div class="col-2">
+                      <div class="float-right">
+                        <button type="submit" class="btn btn-sm btn-primary" href="#" role="button">Adicionar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="h6">Morte: Inicial R$00.000,00 / Restante R$00.000,00</p>
+                  <table class="table table-hover table-sm table-responsive-md">
+                    <thead class="thead-dark">
+                      <tr class="d-flex">
+                        <th class="col-2">Data</th>
+                        <th class="col-2">Valor</th>
+                        <th class="col-4">Descrição</th>
+                        <th class="col-1 text-center">Deferido</th>
+                        <th class="col-3 text-center">Ações</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="d-flex">
+                        <td class="col-2">01/02/2019</td>
+                        <td class="col-2">1.200,25</td>
+                        <td class="col-4 text-truncate">Caros amigos, a hegemonia do ambiente político estimula a padronização dos paradigmas corporativos.</td>
+                        <td class="col-1 text-center text-success">Sim</td>
+                        <td class="col-3 text-center">
+                          <a href="#infoMedico" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                          <a href="#editarMedico" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                        </td>
+                      </tr>
+                      <tr class="d-flex">
+                        <td class="col-2">01/02/2019</td>
+                        <td class="col-2">7.900,99</td>
+                        <td class="col-4 text-truncate">Caros amigos, a hegemonia do ambiente político estimula a padronização dos paradigmas corporativos.</td>
+                        <td class="col-1 text-center text-danger">Não</td>
+                        <td class="col-3 text-center">
+                          <a href="#infoMedico" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                          <a href="#editarMedico" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p class="text-right h6">TOTAL R$00.000,00</p>
+                  <p class="h6">DAMS: Inicial R$00.000,00 / Restante R$00.000,00</p>
+                  <table class="table table-hover table-sm table-responsive-md">
+                    <thead class="thead-dark">
+                      <tr class="d-flex">
+                        <th class="col-2">Data</th>
+                        <th class="col-2">Valor</th>
+                        <th class="col-4">Descrição</th>
+                        <th class="col-1 text-center">Deferido</th>
+                        <th class="col-3 text-center">Ações</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="d-flex">
+                        <td class="col-2">01/02/2019</td>
+                        <td class="col-2">1.200,25</td>
+                        <td class="col-4 text-truncate">Caros amigos, a hegemonia do ambiente político estimula a padronização dos paradigmas corporativos.</td>
+                        <td class="col-1 text-center text-success">Sim</td>
+                        <td class="col-3 text-center">
+                          <a href="#infoMedico" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                          <a href="#editarMedico" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p class="text-right h6">TOTAL R$00.000,00</p>
                 </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="tituloAPP">
+                <h6 class="p-2 m-0" data-toggle="collapse" data-target="#collapseAPP" aria-expanded="true" aria-controls="collapseAPP">
+                  APP
+                </h6>
+              </div>
+              <div id="collapseAPP" class="collapse" aria-labelledby="tituloAPP" data-parent="#accordionDespesas">
+                <div class="card-body">
+                  Teste
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="tituloRC">
+                <h6 class="p-2 m-0" data-toggle="collapse" data-target="#collapseRC" aria-expanded="true" aria-controls="collapseRC">
+                  RC
+                </h6>
+              </div>
+              <div id="collapseRC" class="collapse" aria-labelledby="tituloRC" data-parent="#accordionDespesas">
+                <div class="card-body">
+                  Teste
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+          <p class="text-right lead pt-3">TOTAL DE DESPESAS R$30.000,00</p>
+        </section>
+      </div>
+
+      <!-- LESÕES -->
+      <div class="tab-pane fade" id="lesoes" role="tabpanel" aria-labelledby="lesoes-tab">
+        Lesões
+      </div>
+
+      <!-- LESÕES -->
+      <div class="tab-pane fade" id="consultas" role="tabpanel" aria-labelledby="consultas-tab">
+        Consultas
+      </div>
     </div>
 
     <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
