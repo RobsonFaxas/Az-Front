@@ -79,11 +79,11 @@
     </nav>
 
     <!-- Modal Pesquisa-->
-    <div class="modal fade" id="pesquisaMedicos" tabindex="-1" role="dialog" aria-labelledby="pesquisaMedicos" aria-hidden="true">
+    <div class="modal fade" id="pesquisaSinistros" tabindex="-1" role="dialog" aria-labelledby="pesquisaSinistros" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h6 class="modal-title" id="pesquisaMedicosTitulo">Pesquisa Avançada</h6>
+            <h6 class="modal-title" id="pesquisaSinistrosTitulo">Pesquisa Sinistros</h6>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -92,41 +92,45 @@
             <div class="container-fluid">
               <div class="row">
                 <form class="form-row">
-                  <div class="form-group col-2">
-                    <label for="idMedico" class="sr-only">ID</label>
-                    <input type="text" class="form-control form-control-sm" id="idMedico" placeholder="ID" data-toggle="tooltip" data-placement="top" title="ID">
-                  </div>
-                  <div class="form-group col-5">
-                    <label for="nomeMedico" class="sr-only">Médico</label>
-                    <input type="text" class="form-control form-control-sm" id="nomeMedico" placeholder="Médico" data-toggle="tooltip" data-placement="top" title="Médico">
-                  </div>
-                  <div class="form-group col-5">
-                    <label for="emailMedico" class="sr-only">E-mail</label>
-                    <input type="text" class="form-control form-control-sm" id="emailMedico" placeholder="E-mail" data-toggle="tooltip" data-placement="top" title="E-mail">
-                  </div>
-                  <div class="form-group col-3">
-                    <label for="crmMedico" class="sr-only">CRM</label>
-                    <input type="text" class="form-control form-control-sm" id="crmMedico" placeholder="CRM" data-toggle="tooltip" data-placement="top" title="CRM">
-                  </div>
-                  <div class="form-group col-3">
-                    <label for="cpfMedico" class="sr-only">CPF</label>
-                    <input type="text" class="form-control form-control-sm" id="cpfMedico" placeholder="CPF" data-toggle="tooltip" data-placement="top" title="CPF">
-                  </div>
-                  <div class="form-group col-3">
-                    <label for="telMedico" class="sr-only">Telefone</label>
-                    <input type="text" class="form-control form-control-sm" id="telMedico" placeholder="Telefone" data-toggle="tooltip" data-placement="top" title="Telefone">
-                  </div>
-                  <div class="form-group col-3">
-                    <label for="celMedico" class="sr-only">Celular</label>
-                    <input type="text" class="form-control form-control-sm" id="celMedico" placeholder="Celular" data-toggle="tooltip" data-placement="top" title="Celular">
-                  </div>
-                  <div class="form-group col-3">
-                    <label for="areaMedico" class="sr-only">Área</label>
-                    <input type="text" class="form-control form-control-sm" id="areaMedico" placeholder="Área" data-toggle="tooltip" data-placement="top" title="Área">
-                  </div>
                   <div class="form-group col-4">
-                    <label for="especialidadeMedico" class="sr-only">Especialidade</label>
-                    <input type="text" class="form-control form-control-sm" id="especialidadeMedico" placeholder="Especialidade" data-toggle="tooltip" data-placement="top" title="Especialidade">
+                    <label for="numeroSinistro" class="sr-only">Número Sinistro</label>
+                    <input type="text" class="form-control form-control-sm" id="numeroSinistro" placeholder="Número Sinistro" data-toggle="tooltip" data-placement="top" title="Número Sinistro">
+                  </div>
+                  <div class="form-group col-5">
+                    <label for="seguradoSinistro" class="sr-only">Título / Segurado</label>
+                    <input type="text" class="form-control form-control-sm" id="seguradoSinistro" placeholder="Título / Segurado" data-toggle="tooltip" data-placement="top" title="Título / Segurado">
+                  </div>
+                  <div class="form-group col-3">
+                    <label for="regularidade" class="sr-only">Regularidade</label>
+                    <select class="form-control form-control-sm text-secondary" id="regularidade" data-toggle="tooltip" data-placement="top" title="Regularidade">
+                      <option selected>Regularidade</option>
+                      <option value="1">Sim</option>
+                      <option value="2">Não</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-5">
+                    <label for="seguradoraSinistro" class="sr-only">Seguradora</label>
+                    <input type="text" class="form-control form-control-sm" id="seguradoraSinistro" placeholder="Seguradora" data-toggle="tooltip" data-placement="top" title="Seguradora">
+                  </div>
+                  <div class="form-group col-5">
+                    <label for="corretorSinistro" class="sr-only">Corretor Responsável</label>
+                    <input type="text" class="form-control form-control-sm" id="corretorSinistro" placeholder="Corretor Responsável" data-toggle="tooltip" data-placement="top" title="Corretor Responsável">
+                  </div>
+                  <div class="form-group col-2">
+                    <label for="idSinistro" class="sr-only">ID</label>
+                    <input type="text" class="form-control form-control-sm" id="idSinistro" placeholder="ID" data-toggle="tooltip" data-placement="top" title="ID">
+                  </div>
+                  <div class="form-group col-3">
+                    <label for="dataOcorrencia" class="sr-only">Data Ocorrência</label>
+                    <input type="text" class="form-control form-control-sm" id="dataOcorrencia" placeholder="Data Ocorrência" data-toggle="tooltip" data-placement="top" title="Data Ocorrência">
+                  </div>
+                  <div class="form-group col-3">
+                    <label for="dataRecebimento" class="sr-only">Data Recebimento</label>
+                    <input type="text" class="form-control form-control-sm" id="dataRecebimento" placeholder="Data Recebimento" data-toggle="tooltip" data-placement="top" title="Data Recebimento">
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="nomeVitima" class="sr-only">Nome Vítima</label>
+                    <input type="text" class="form-control form-control-sm" id="nomeVitima" placeholder="Nome Vítima" data-toggle="tooltip" data-placement="top" title="Nome Vítima">
                   </div>
                 </form>
               </div>
@@ -615,22 +619,22 @@
       <div class="row pt-4">
         <div class="col-10">
           <form class="form-row">
-            <div class="form-group col-2">
-              <label for="idMedico" class="sr-only">ID</label>
-              <input type="text" class="form-control form-control-sm" id="idMedico" placeholder="ID" data-toggle="tooltip" data-placement="top" title="ID">
-            </div>
-            <div class="form-group col-4">
-              <label for="nomeMedico" class="sr-only">Médico</label>
-              <input type="text" class="form-control form-control-sm" id="nomeMedico" placeholder="Médico" data-toggle="tooltip" data-placement="top" title="Médico">
+            <div class="form-group col-3">
+              <label for="numeroSinistro" class="sr-only">Número Sinistro</label>
+              <input type="text" class="form-control form-control-sm" id="numeroSinistro" placeholder="Número Sinistro" data-toggle="tooltip" data-placement="top" title="Número Sinistro">
             </div>
             <div class="form-group col-3">
-              <label for="cpfMedico" class="sr-only">CPF</label>
-              <input type="text" class="form-control form-control-sm" id="cpfMedico" placeholder="CPF" data-toggle="tooltip" data-placement="top" title="CPF">
+              <label for="seguradoSinistro" class="sr-only">Título / Segurado</label>
+              <input type="text" class="form-control form-control-sm" id="seguradoSinistro" placeholder="Título / Segurado" data-toggle="tooltip" data-placement="top" title="Título / Segurado">
+            </div>
+            <div class="form-group col-3">
+              <label for="nomeVitima" class="sr-only">Nome Vítima</label>
+              <input type="text" class="form-control form-control-sm" id="nomeVitima" placeholder="Nome Vítima" data-toggle="tooltip" data-placement="top" title="Nome Vítima">
             </div>
             <div class="form-group col-2">
               <button type="submit" class="btn btn-sm btn-primary">Pesquisar <img class="pl-1" src="img/icon-search.png"></button>
               <small id="pesquisaAvancada" class="text-muted">
-                <a href="#pesquisaMedicos" data-toggle="modal">Pesquisa Avançada</a>
+                <a href="#pesquisaSinistros" data-toggle="modal">Pesquisa Avançada</a>
               </small>
             </div>
           </form>

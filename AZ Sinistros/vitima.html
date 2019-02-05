@@ -204,7 +204,6 @@
             </div>
           </div>
         </section>
-
         <!-- Timeline -->
         <section class="container timeline py-4">
           <p class="h5 text-center">Timeline</p>
@@ -303,11 +302,187 @@
 
       <!-- DESPESAS -->
       <div class="tab-pane fade" id="despesas" role="tabpanel" aria-labelledby="despesas-tab">
+        <!-- Modal Adicionar Despesa -->
+        <div class="modal fade" id="adicionarDespesa" tabindex="-1" role="dialog" aria-labelledby="adicionarDespesa" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarDespesaTitulo">Adicionar Despesa</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="valorDespesa">Valor</label>
+                      <input type="text" class="form-control form-control-sm" id="valorDespesa">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoDespesa">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoDespesa" rows="4"></textarea>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="tipoDespesa">Tipo de Despesa</label>
+                      <select class="form-control form-control-sm" id="tipoDespesa">
+                        <option selected>Selecionar...</option>
+                        <optgroup label="DPVAT">
+                          <option value="1">Morte</option>
+                          <option value="2">Invalidez</option>
+                          <option value="3">DAMS</option>
+                        </optgroup>
+                        <optgroup label="APP">
+                          <option value="4">Morte</option>
+                          <option value="5">Invalidez</option>
+                          <option value="6">DMH</option>
+                        </optgroup>
+                        <optgroup label="RC">
+                          <option value="7">DM</option>
+                          <option value="8">DC</option>
+                        </optgroup>
+                        <optgroup label="RC 3º">
+                          <option value="9">DM</option>
+                          <option value="10">DC</option>
+                        </optgroup>
+                      </select>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="despesaDeferida">Deferido</label>
+                      <div class="form-check">
+                        <input class="form-check-input" name="deferido" type="radio" id="radioSim" value="sim">
+                        <label class="form-check-label" for="radioSim">Sim</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" name="deferido" type="radio" id="radioNao" value="nao" checked>
+                        <label class="form-check-label" for="radioNao">Não</label>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-wide">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar Despesa -->
+        <div class="modal fade" id="editarDespesa" tabindex="-1" role="dialog" aria-labelledby="editarDespesa" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarDespesaTitulo">Editar Despesa</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="valorDespesa">Valor</label>
+                      <input type="text" class="form-control form-control-sm" id="valorDespesa">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoDespesa">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoDespesa" rows="4"></textarea>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="tipoDespesa">Tipo de Despesa</label>
+                      <select class="form-control form-control-sm" id="tipoDespesa">
+                        <option selected>Selecionar...</option>
+                        <optgroup label="DPVAT">
+                          <option value="1">Morte</option>
+                          <option value="2">Invalidez</option>
+                          <option value="3">DAMS</option>
+                        </optgroup>
+                        <optgroup label="APP">
+                          <option value="4">Morte</option>
+                          <option value="5">Invalidez</option>
+                          <option value="6">DMH</option>
+                        </optgroup>
+                        <optgroup label="RC">
+                          <option value="7">DM</option>
+                          <option value="8">DC</option>
+                        </optgroup>
+                        <optgroup label="RC 3º">
+                          <option value="9">DM</option>
+                          <option value="10">DC</option>
+                        </optgroup>
+                      </select>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="despesaDeferida">Deferido</label>
+                      <div class="form-check">
+                        <input class="form-check-input" name="deferido" type="radio" id="radioSim" value="sim">
+                        <label class="form-check-label" for="radioSim">Sim</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" name="deferido" type="radio" id="radioNao" value="nao" checked>
+                        <label class="form-check-label" for="radioNao">Não</label>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="row mb-1">
+                    <div class="col">
+                      <a href="#" class="badge badge-danger">Excluir Despesa</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-wide">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Visualizar Despesa -->
+        <div class="modal fade" id="infoDespesa" tabindex="-1" role="dialog" aria-labelledby="infoDespesa" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="infoDespesaTitulo">Info Despesa</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <form class="form-row p-2">
+                    <div class="form-group col-6">
+                      <label for="valorDespesa"><strong>Valor</strong></label>
+                      <input type="text" readonly class="form-control-plaintext" id="valorDespesa" value="R$30.000,00">
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="despesaDeferida"><strong>Deferido</strong></label>
+                        <input type="text" readonly class="form-control-plaintext" id="despesaDeferida" value="Sim">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoDespesa"><strong>Descrição</strong></label>
+                      <textarea type="text" readonly class="form-control-plaintext" id="descricaoDespesa" rows="3">O incentivo ao avanço tecnológico, assim como o julgamento imparcial das eventualidades facilita a criação do sistema de participação geral.</textarea>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="tipoDespesa"><strong>Tipo de Despesa</strong></label>
+                      <input type="text" readonly class="form-control-plaintext" id="tipoDespesa" value="DPVAT - Invalidez">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="logDespesa"><strong>Log</strong></label>
+                      <textarea type="text" readonly class="form-control-plaintext" id="logDespesa" rows="5">12/12/2018 09:10:25 - Alteração deferido para Sim, por usuário sergio@azsinistros.com.br&#13;&#10;11/12/2018 14:03:54 - Criação da despesa, valor R$0,00, descrição Teste, tipo DPVAT Invalidez, deferido Não, por usuário sergio@azsinistros.com.br
+                      </textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Despesas -->
         <section class="container pt-3 pb-5">
-          <div class="accordion" id="accordionDespesas">
+          <div class="accordion accordion-despesas" id="accordionDespesas">
             <div class="card">
               <div class="card-header" id="tituloDPVAT">
-                <h6 class="p-2 m-0" data-toggle="collapse" data-target="#collapseDPVAT" aria-expanded="true" aria-controls="collapseDPVAT">
+                <h6 class="m-0" data-toggle="collapse" data-target="#collapseDPVAT" aria-expanded="true" aria-controls="collapseDPVAT">
                   DPVAT
                 </h6>
               </div>
@@ -318,7 +493,7 @@
                     </div>
                     <div class="col-2">
                       <div class="float-right">
-                        <button type="submit" class="btn btn-sm btn-primary" href="#" role="button">Adicionar</button>
+                        <button type="submit" class="btn btn-sm btn-primary" href="#adicionarDespesa" data-toggle="modal" role="button">Adicionar</button>
                       </div>
                     </div>
                   </div>
@@ -340,8 +515,8 @@
                         <td class="col-4 text-truncate">Caros amigos, a hegemonia do ambiente político estimula a padronização dos paradigmas corporativos.</td>
                         <td class="col-1 text-center text-success">Sim</td>
                         <td class="col-3 text-center">
-                          <a href="#infoMedico" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
-                          <a href="#editarMedico" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                          <a href="#infoDespesa" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                          <a href="#editarDespesa" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
                         </td>
                       </tr>
                       <tr class="d-flex">
@@ -350,8 +525,8 @@
                         <td class="col-4 text-truncate">Caros amigos, a hegemonia do ambiente político estimula a padronização dos paradigmas corporativos.</td>
                         <td class="col-1 text-center text-danger">Não</td>
                         <td class="col-3 text-center">
-                          <a href="#infoMedico" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
-                          <a href="#editarMedico" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                          <a href="#infoDespesa" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                          <a href="#editarDespesa" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
                         </td>
                       </tr>
                     </tbody>
@@ -375,8 +550,8 @@
                         <td class="col-4 text-truncate">Caros amigos, a hegemonia do ambiente político estimula a padronização dos paradigmas corporativos.</td>
                         <td class="col-1 text-center text-success">Sim</td>
                         <td class="col-3 text-center">
-                          <a href="#infoMedico" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
-                          <a href="#editarMedico" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                          <a href="#infoDespesa" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                          <a href="#editarDespesa" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
                         </td>
                       </tr>
                     </tbody>
@@ -387,7 +562,7 @@
             </div>
             <div class="card">
               <div class="card-header" id="tituloAPP">
-                <h6 class="p-2 m-0" data-toggle="collapse" data-target="#collapseAPP" aria-expanded="true" aria-controls="collapseAPP">
+                <h6 class="m-0" data-toggle="collapse" data-target="#collapseAPP" aria-expanded="true" aria-controls="collapseAPP">
                   APP
                 </h6>
               </div>
@@ -399,11 +574,23 @@
             </div>
             <div class="card">
               <div class="card-header" id="tituloRC">
-                <h6 class="p-2 m-0" data-toggle="collapse" data-target="#collapseRC" aria-expanded="true" aria-controls="collapseRC">
+                <h6 class="m-0" data-toggle="collapse" data-target="#collapseRC" aria-expanded="true" aria-controls="collapseRC">
                   RC
                 </h6>
               </div>
               <div id="collapseRC" class="collapse" aria-labelledby="tituloRC" data-parent="#accordionDespesas">
+                <div class="card-body">
+                  Teste
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="tituloRC3">
+                <h6 class="m-0" data-toggle="collapse" data-target="#collapseRC3" aria-expanded="true" aria-controls="collapseRC3">
+                  RC 3º
+                </h6>
+              </div>
+              <div id="collapseRC3" class="collapse" aria-labelledby="tituloRC3" data-parent="#accordionDespesas">
                 <div class="card-body">
                   Teste
                 </div>
@@ -416,10 +603,159 @@
 
       <!-- LESÕES -->
       <div class="tab-pane fade" id="lesoes" role="tabpanel" aria-labelledby="lesoes-tab">
-        Lesões
+        <!-- Modal Adicionar Lesão -->
+        <div class="modal fade" id="adicionarLesao" tabindex="-1" role="dialog" aria-labelledby="adicionarLesao" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarLesaoTitulo">Adicionar Lesão</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeLesao">Nome</label>
+                      <select class="form-control form-control-sm" id="nomeLesao">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Opção 1</option>
+                        <option value="2">Opção 2</option>
+                        <option value="3">Opção 3</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoLesao">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoLesao" rows="4"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-wide">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar Lesao -->
+        <div class="modal fade" id="editarLesao" tabindex="-1" role="dialog" aria-labelledby="editarLesao" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarLesaoTitulo">Editar Lesão</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="nomeLesao">Nome</label>
+                      <select class="form-control form-control-sm" id="nomeLesao">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Opção 1</option>
+                        <option value="2">Opção 2</option>
+                        <option value="3">Opção 3</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoLesao">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoLesao" rows="4"></textarea>
+                    </div>
+                  </form>
+                  <div class="row mb-1">
+                    <div class="col">
+                      <a href="#" class="badge badge-danger">Excluir Lesão</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-wide">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Visualizar Lesão  -->
+        <div class="modal fade" id="infoLesao" tabindex="-1" role="dialog" aria-labelledby="infolesao" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="infoLesaoTitulo">Info Lesão</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <form class="form-row p-2">
+                    <div class="form-group col-12">
+                      <label for="nomeLesao"><strong>Nome</strong></label>
+                      <input type="text" readonly class="form-control-plaintext" id="nomeLesao" value="Lesão de Joelho Esquerdo">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoLesao"><strong>Descrição</strong></label>
+                      <textarea type="text" readonly class="form-control-plaintext" id="descricaoLesao" rows="3">Percebemos, cada vez mais, que o fenômeno da Internet pode nos levar a considerar a reestruturação das formas de ação.</textarea>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="logLesao"><strong>Log</strong></label>
+                      <textarea type="text" readonly class="form-control-plaintext" id="logLesao" rows="5">12/12/2018 09:10:25 - Alteração nome para Lesão de Joelho Esquerdo, por usuário sergio@azsinistros.com.br&#13;&#10;11/12/2018 14:03:54 - Criação da lesão, nome Fratura de Coluna, descrição Teste, por usuário sergio@azsinistros.com.br
+                      </textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Lesões -->
+        <section class="container pt-3 pb-5">
+          <div class="row pb-3">
+            <div class="offset-10">
+            </div>
+            <div class="col-2">
+              <div class="float-right">
+                <button type="submit" class="btn btn-sm btn-primary" href="#adicionarLesao" data-toggle="modal" role="button">Adicionar</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <table class="table table-hover table-sm table-responsive-md">
+                <thead class="thead-dark">
+                  <tr class="d-flex">
+                    <th class="col-3">Nome</th>
+                    <th class="col-6">Descrição</th>
+                    <th class="col-3 text-center">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="d-flex">
+                    <td class="col-3">Lesão de Joelho Esquerdo</td>
+                    <td class="col-6 text-truncate">Percebemos, cada vez mais, que o fenômeno da Internet pode nos levar a considerar a reestruturação das formas de ação.</td>
+                    <td class="col-3 text-center">
+                      <a href="#infoLesao" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                      <a href="#editarLesao" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                    </td>
+                  </tr>
+                  <tr class="d-flex">
+                    <td class="col-3">Fratura de Coluna</td>
+                    <td class="col-6 text-truncate">Percebemos, cada vez mais, que o fenômeno da Internet pode nos levar a considerar a reestruturação das formas de ação.</td>
+                    <td class="col-3 text-center">
+                      <a href="#infoLesao" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                      <a href="#editarLesao" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <!-- LESÕES -->
+      <!-- CONSULTAS -->
       <div class="tab-pane fade" id="consultas" role="tabpanel" aria-labelledby="consultas-tab">
         Consultas
       </div>
