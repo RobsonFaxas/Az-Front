@@ -711,7 +711,7 @@
           </div>
         </div>
         <!-- Conteúdo Lesões -->
-        <section class="container pt-3 pb-5">
+        <section class="container pb-5">
           <div class="row pb-3">
             <div class="offset-10">
             </div>
@@ -757,7 +757,205 @@
 
       <!-- CONSULTAS -->
       <div class="tab-pane fade" id="consultas" role="tabpanel" aria-labelledby="consultas-tab">
-        Consultas
+        <!-- Modal Adicionar Consulta -->
+        <div class="modal fade" id="adicionarConsulta" tabindex="-1" role="dialog" aria-labelledby="adicionarConsulta" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarConsultaTitulo">Adicionar Consulta</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="dataConsulta">Data</label>
+                      <input type="text" class="form-control form-control-sm" id="dataConsulta">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="hospitalConsulta">Hospital</label>
+                      <select class="form-control form-control-sm selectpicker" data-live-search="true" id="hospitalConsulta">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Opção 1</option>
+                        <option value="2">Opção 2</option>
+                        <option value="3">Opção 3</option>
+                        <option value="4">Opção 4</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="medicoConsulta">Médico</label>
+                      <select class="form-control form-control-sm selectpicker" data-live-search="true" id="medicoConsulta">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Opção 1</option>
+                        <option value="2">Opção 2</option>
+                        <option value="3">Opção 3</option>
+                        <option value="4">Opção 4</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoConsulta">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoConsulta" rows="4"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-wide">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar Consulta -->
+        <div class="modal fade" id="editarConsulta" tabindex="-1" role="dialog" aria-labelledby="editarConsulta" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarConsultaTitulo">Editar Consulta</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <label for="dataConsulta">Data</label>
+                      <input type="text" class="form-control form-control-sm" id="dataConsulta">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="hospitalConsulta">Hospital</label>
+                      <select class="form-control form-control-sm selectpicker" data-live-search="true" id="hospitalConsulta">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Opção 1</option>
+                        <option value="2">Opção 2</option>
+                        <option value="3">Opção 3</option>
+                        <option value="4">Opção 4</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="medicoConsulta">Médico</label>
+                      <select class="form-control form-control-sm selectpicker" data-live-search="true" id="medicoConsulta">
+                        <option selected>Selecionar...</option>
+                        <option value="1">Opção 1</option>
+                        <option value="2">Opção 2</option>
+                        <option value="3">Opção 3</option>
+                        <option value="4">Opção 4</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoConsulta">Descrição</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoConsulta" rows="4"></textarea>
+                    </div>
+                  </form>
+                  <div class="row mb-1">
+                    <div class="col">
+                      <a href="#" class="badge badge-danger">Excluir Consulta</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-wide">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Visualizar Consulta -->
+        <div class="modal fade" id="infoConsulta" tabindex="-1" role="dialog" aria-labelledby="infoConsulta" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="infoConsultaTitulo">Info Consulta</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <form class="form-row p-2">
+                    <div class="form-group col-12">
+                      <label for="dataConsulta"><strong>Data</strong></label>
+                      <input type="text" readonly class="form-control-plaintext" id="dataConsulta" value="11/02/2019">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="hospitalConsulta"><strong>Hospital</strong></label>
+                      <input type="text" readonly class="form-control-plaintext" id="hospitalConsulta" value="Albert Einstein">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="medicoConsulta"><strong>Médico</strong></label>
+                      <input type="text" readonly class="form-control-plaintext" id="medicoConsulta" value="Dr. Rey">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="descricaoConsulta"><strong>Descrição</strong></label>
+                      <textarea type="text" readonly class="form-control-plaintext" id="descricaoConsulta" rows="3">Percebemos, cada vez mais, que o fenômeno da Internet pode nos levar a considerar a reestruturação das formas de ação.</textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Consultas -->
+        <section class="container">
+          <div class="row pb-3">
+            <div class="offset-10">
+            </div>
+            <div class="col-2">
+              <div class="float-right">
+                <button type="submit" class="btn btn-sm btn-primary" href="#adicionarConsulta" data-toggle="modal" role="button">Adicionar</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <table class="table table-hover table-sm table-responsive-md">
+                <thead class="thead-dark">
+                  <tr class="d-flex">
+                    <th class="col-2">Data</th>
+                    <th class="col-2">Hospital</th>
+                    <th class="col-2">Médico</th>
+                    <th class="col-3">Descrição</th>
+                    <th class="col-3 text-center">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="d-flex">
+                    <td class="col-2">11/02/2019</td>
+                    <td class="col-2">Albert Einstein</td>
+                    <td class="col-2">Dr. Rey</td>
+                    <td class="col-3 text-truncate">Percebemos, cada vez mais, que o fenômeno da Internet pode nos levar a considerar a reestruturação das formas de ação.</td>
+                    <td class="col-3 text-center">
+                      <a href="#infoConsulta" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                      <a href="#editarConsulta" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                    </td>
+                  </tr>
+                  <tr class="d-flex">
+                    <td class="col-2">11/02/2019</td>
+                    <td class="col-2">Albert Einstein</td>
+                    <td class="col-2">Dr. Rey</td>
+                    <td class="col-3 text-truncate">Percebemos, cada vez mais, que o fenômeno da Internet pode nos levar a considerar a reestruturação das formas de ação.</td>
+                    <td class="col-3 text-center">
+                      <a href="#infoConsulta" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                      <a href="#editarConsulta" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                    </td>
+                  </tr>
+                  <tr class="d-flex">
+                    <td class="col-2">11/02/2019</td>
+                    <td class="col-2">Albert Einstein</td>
+                    <td class="col-2">Dr. Rey</td>
+                    <td class="col-3 text-truncate">Percebemos, cada vez mais, que o fenômeno da Internet pode nos levar a considerar a reestruturação das formas de ação.</td>
+                    <td class="col-3 text-center">
+                      <a href="#infoConsulta" data-toggle="modal">Detalhes <img class="pl-1" src="img/icon-view.png"></a>
+                      <a href="#editarConsulta" data-toggle="modal" class="pl-4">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
 
