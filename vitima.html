@@ -297,7 +297,248 @@
 
       <!-- MENSAGENS -->
       <div class="tab-pane fade" id="mensagens" role="tabpanel" aria-labelledby="mensagens-tab">
-        Mensagens
+        <!-- Modal Adicionar Mensagem Pt.I -->
+        <div class="modal fade" id="adicionarMensagem" tabindex="-1" role="dialog" aria-labelledby="adicionarMensagem" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarMensagemTitulo">Adicionar Mensagem</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <input type="file" class="form-control-file" id="addArquivo">
+                    </div>
+                  </form>
+                  <div class="row">
+                    <div class="col-12 drag-drop d-flex justify-content-center align-items-center">
+                      <p class="text-center lead">Arraste aqui seus arquivos</p>
+                    </div>
+                    <div class="offset-9">
+                    </div>
+                    <div class="col-3 pr-0">
+                      <div class="float-right">
+                        <button type="submit" class="btn btn-sm btn-secondary mt-3" href="#uploadArquivos" data-toggle="modal" role="button">Fazer Upload</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pt-3">
+                    <div class="col-6">
+                      <p class="text-truncate">Relatório de Padronização de Honorários Médicos</p>
+                    </div>
+                    <div class="col-6">
+                      <img src="img/ok-ico.png" alt="Ok">
+                    </div>
+                    <div class="col-6">
+                      <p class="text-truncate">2° Relatório de Despesas GLOSADAS</p>
+                    </div>
+                    <div class="col-6">
+                      <img src="img/ok-ico.png" alt="Ok">
+                    </div>
+                    <div class="col-6">
+                      <p class="text-truncate">1° Relatório de Despesas</p>
+                    </div>
+                    <div class="col-6">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <p class="text-truncate">ComprovanteCorreiosR$66,95.pdf</p>
+                    </div>
+                    <div class="col-6">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" href="#adicionarMensagem2" data-toggle="modal" class="btn btn-primary btn-sm btn-wide">Avançar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Adicionar Mensagem Pt.II -->
+        <div class="modal fade" id="adicionarMensagem2" tabindex="-1" role="dialog" aria-labelledby="adicionarMensagem2" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarMensagemTitulo">Adicionar Mensagem</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12 mb-1">
+                      <label for="sigiloMensagem" class="pr-4">Sigilo:</label>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="sigilo" type="radio" id="radioSim" value="sim">
+                        <label class="form-check-label" for="radioSim">Sim</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="sigilo" type="radio" id="radioNao" value="nao" checked>
+                        <label class="form-check-label" for="radioNao">Não</label>
+                      </div>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="assuntoMensagem">Assunto:</label>
+                      <input type="text" class="form-control form-control-sm" id="valorDespesa" value="Ref. REGULAÇÃO DE DESPESAS MÉDICAS E INVALIDEZ / 0">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="corpoMensagem">Mensagem:</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoDespesa" rows="5">Em análise do prontuário apresentado e com a finalidade de determinar o grau de incapacidade/déficit funcional, verificamos tratar-se de uma paciente jovem (28 anos) que teve a perda anatômica de parte do quinto dedo da mão dir. e fraturas passíveis de correção cirurgica.
+                        A amputação de parte do 5º dedo, faz atribuir a perda de 4% (perda total do uso de um dos dedos mínimos ou um dos dedos médios 12% e perda total do uso de qualquer falange, excluidas as do polegar: equivalente a 1/3 do valor do dedo respectivo).
+                        Quanto ao ombro, o pior cenários seria a rigidez do mesmo, resultado pouco provável, tendo em vista que realizou o procedimento cirurgico adequado. Considerando este cenário, poderíamos atribuir 25%.</textarea>
+                    </div>
+                  </form>
+                  <div class="row pt-3">
+                    <div class="col-1">
+                      <img src="img/delete-ico.png" alt="Excluir" data-toggle="tooltip" data-placement="top" title="Excluir">
+                    </div>
+                    <div class="col-11">
+                      <input type="text" class="form-control form-control-sm mb-2" id="nomeArquivo1" value="Relatório de Padronização de Honorários Médicos">
+                    </div>
+                    <div class="col-1">
+                      <img src="img/delete-ico.png" alt="Excluir" data-toggle="tooltip" data-placement="top" title="Excluir">
+                    </div>
+                    <div class="col-11">
+                      <input type="text" class="form-control form-control-sm mb-2" id="nomeArquivo1" value="2° Relatório de Despesas GLOSADAS">
+                    </div>
+                    <div class="col-1">
+                      <img src="img/delete-ico.png" alt="Excluir" data-toggle="tooltip" data-placement="top" title="Excluir">
+                    </div>
+                    <div class="col-11">
+                      <input type="text" class="form-control form-control-sm mb-2" id="nomeArquivo1" value="1° Relatório de Despesas">
+                    </div>
+                    <div class="col-1">
+                      <img src="img/delete-ico.png" alt="Excluir" data-toggle="tooltip" data-placement="top" title="Excluir">
+                    </div>
+                    <div class="col-11">
+                      <input type="text" class="form-control form-control-sm mb-2" id="nomeArquivo1" value="ComprovanteCorreiosR$66,95.pdf">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-wide">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar Mensagem -->
+        <div class="modal fade" id="editarMensagem" tabindex="-1" role="dialog" aria-labelledby="editarMensagem" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarMensagemTitulo">Editar Mensagem</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12 mb-1">
+                      <label for="sigiloMensagem" class="pr-4">Sigilo:</label>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="sigilo" type="radio" id="radioSim" value="sim">
+                        <label class="form-check-label" for="radioSim">Sim</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="sigilo" type="radio" id="radioNao" value="nao" checked>
+                        <label class="form-check-label" for="radioNao">Não</label>
+                      </div>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="assuntoMensagem">Assunto:</label>
+                      <input type="text" class="form-control form-control-sm" id="valorDespesa" value="Ref. REGULAÇÃO DE DESPESAS MÉDICAS E INVALIDEZ / 0">
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="corpoMensagem">Mensagem:</label>
+                      <textarea type="text" class="form-control form-control-sm" id="descricaoDespesa" rows="10">Em análise do prontuário apresentado e com a finalidade de determinar o grau de incapacidade/déficit funcional, verificamos tratar-se de uma paciente jovem (28 anos) que teve a perda anatômica de parte do quinto dedo da mão dir. e fraturas passíveis de correção cirurgica.
+                        A amputação de parte do 5º dedo, faz atribuir a perda de 4% (perda total do uso de um dos dedos mínimos ou um dos dedos médios 12% e perda total do uso de qualquer falange, excluidas as do polegar: equivalente a 1/3 do valor do dedo respectivo).
+                        Quanto ao ombro, o pior cenários seria a rigidez do mesmo, resultado pouco provável, tendo em vista que realizou o procedimento cirurgico adequado. Considerando este cenário, poderíamos atribuir 25%.</textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-wide">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Mensagens -->
+        <section class="container pb-5 timeline">
+          <div class="row">
+            <div class="offset-10">
+            </div>
+            <div class="col-2">
+              <div class="float-right">
+                <button type="submit" class="btn btn-sm btn-primary" href="#adicionarMensagem" data-toggle="modal" role="button">Adicionar</button>
+              </div>
+            </div>
+          </div>
+          <div class="row py-2">
+            <p class="pl-3 text-muted timeline-data"><strong>26/12</strong></p>
+            <div class="col-12 pb-2">
+              <div class="card timeline-mensagem">
+                  <div class="card-body">
+                    <p class="card-text ">Ref. REGULAÇÃO DE DESPESAS MÉDICAS E INVALIDEZ / 0 <br>
+                      <br>
+                      Prezada Fernanda<br>
+                      Em atendimento a sua solicitação, encaminhamos a documentação para apreciação de nosso médico auditor que emite o seguinte parecer:<br>
+                      Em análise do prontuário apresentado e com a finalidade de determinar o grau de incapacidade/déficit funcional, verificamos tratar-se de uma paciente jovem (28 anos) que teve a perda anatômica de parte do quinto dedo da mão dir. e fraturas passíveis de correção cirurgica.<br>
+                      A amputação de parte do 5º dedo, faz atribuir a perda de 4% (perda total do uso de um dos dedos mínimos ou um dos dedos médios 12% e perda total do uso de qualquer falange, excluidas as do polegar: equivalente a 1/3 do valor do dedo respectivo).<br>
+                      Quanto ao ombro, o pior cenários seria a rigidez do mesmo, resultado pouco provável, tendo em vista que realizou o procedimento cirurgico adequado. Considerando este cenário, poderíamos atribuir 25%.<br>
+                      O médico assistente relata que houve perda moderada, porém não existe na tabela da SUSEP essa possibilidade.<br>
+                      Somando-se as estimativas parciais, poderíamos atribuir o total de 29%.<br>
+                      Para melhor avaliação, necessitariamos submeter a vítima a avaliação pericial. Deve ser avaliado no pior cenário, o valor a ser indenizado e se vale a pena submete-lo a perícia.<br>
+                      <br>
+                      Atenciosamente.<br>
+                      Sérgio Beheregaray<br>
+                      www.azsinistros.com.br<br>
+                      TEL: 51 3084.6469 FAX: 51 3225.3904 CEL: 51 8565.1636<br>
+                      NEXTEL: 51 7814.6283 /ID 55*92*176.433 <br>
+                      Logística Assistencial – AZ Sinistros<br>
+                      <div class="dropdown-divider py-1"></div>
+                      <a href="#"><img src="img/pin-ico.png" alt="Anexo" class="pr-1">Relatório de Padronização de Honorários Médicos</a><br>
+                      <a href="#"><img src="img/pin-ico.png" alt="Anexo" class="pr-1">2° Relatório de Despesas GLOSADAS</a><br>
+                      <a href="#"><img src="img/pin-ico.png" alt="Anexo" class="pr-1">1° Relatório de Despesas</a><br>
+                    </p>
+                    <div class="float-right timeline-horario"><small class="text-muted"><a href="#" data-toggle="tooltip" data-placement="top" title="Excluir"><img src="img/trash-ico.png" class="px-1" alt="Excluir"></a><a href="#editarMensagem" data-toggle="modal" data-toggle="tooltip" data-placement="top" title="Editar"><img src="img/edit-ico.png" class="px-1" alt="Editar"></a>17:17</small></div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-12 pb-2">
+              <div class="card timeline-mensagem">
+                  <div class="card-body">
+                    <p class="card-text">Adicionados anexo(s) <em>"DadosBancarios.docx"</em>, <em>"ComprovanteCorreiosR$66,95.pdf"</em>, <em>"doctosveiculosegurado.jpg"</em></p>
+                    <div class="float-right timeline-horario"><small class="text-muted">17:17</small></div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="row py-2">
+            <p class="pl-3 text-muted timeline-data"><strong>25/12</strong></p>
+            <div class="col-12 pb-2">
+              <div class="card timeline-mensagem">
+                  <div class="card-body">
+                    <p class="card-text">Adicionada lesão do tipo <em>"Fratura de Bacia"</em></p>
+                    <div class="float-right timeline-horario"><small class="text-muted">10:15</small></div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       <!-- DESPESAS -->
@@ -478,7 +719,16 @@
           </div>
         </div>
         <!-- Conteúdo Despesas -->
-        <section class="container pt-3 pb-5">
+        <section class="container pb-5">
+          <div class="row pb-3">
+            <div class="offset-10">
+            </div>
+            <div class="col-2">
+              <div class="float-right">
+                <button type="submit" class="btn btn-sm btn-primary" href="#adicionarDespesa" data-toggle="modal" role="button">Adicionar</button>
+              </div>
+            </div>
+          </div>
           <div class="accordion accordion-despesas" id="accordionDespesas">
             <div class="card">
               <div class="card-header" id="tituloDPVAT">
@@ -488,15 +738,6 @@
               </div>
               <div id="collapseDPVAT" class="collapse" aria-labelledby="tituloDPVAT" data-parent="#accordionDespesas">
                 <div class="card-body">
-                  <div class="row pb-3">
-                    <div class="offset-10">
-                    </div>
-                    <div class="col-2">
-                      <div class="float-right">
-                        <button type="submit" class="btn btn-sm btn-primary" href="#adicionarDespesa" data-toggle="modal" role="button">Adicionar</button>
-                      </div>
-                    </div>
-                  </div>
                   <p class="h6">Morte: Inicial R$00.000,00 / Restante R$00.000,00</p>
                   <table class="table table-hover table-sm table-responsive-md">
                     <thead class="thead-dark">
