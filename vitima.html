@@ -29,7 +29,6 @@
             <a class="nav-link" href="relatorios.html">Relatórios</a>
           </li>
 
-
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle ml-2 btn btn-secondary" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Bruna Dias
               <span class="badge badge-info badge-pill">4</span>
@@ -292,7 +291,241 @@
 
       <!-- ARQUIVOS -->
       <div class="tab-pane fade" id="arquivos" role="tabpanel" aria-labelledby="arquivos-tab">
-        Arquivos
+        <!-- Modal Adicionar Arquivo Pt.I -->
+        <div class="modal fade" id="adicionarArquivo" tabindex="-1" role="dialog" aria-labelledby="adicionarArquivo" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarArquivoTitulo">Adicionar Arquivo</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12">
+                      <input type="file" class="form-control-file" id="addArquivo">
+                    </div>
+                  </form>
+                  <div class="row">
+                    <div class="col-12 drag-drop d-flex justify-content-center align-items-center">
+                      <p class="text-center lead">Arraste aqui seus arquivos</p>
+                    </div>
+                    <div class="offset-9">
+                    </div>
+                    <div class="col-3 pr-0">
+                      <div class="float-right">
+                        <button type="submit" class="btn btn-sm btn-secondary mt-3" href="#uploadArquivos" data-toggle="modal" role="button">Fazer Upload</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pt-3">
+                    <div class="col-6">
+                      <p class="text-truncate">Relatório de Padronização de Honorários Médicos</p>
+                    </div>
+                    <div class="col-6">
+                      <img src="img/ok-ico.png" alt="Ok">
+                    </div>
+                    <div class="col-6">
+                      <p class="text-truncate">2° Relatório de Despesas GLOSADAS</p>
+                    </div>
+                    <div class="col-6">
+                      <img src="img/ok-ico.png" alt="Ok">
+                    </div>
+                    <div class="col-6">
+                      <p class="text-truncate">1° Relatório de Despesas</p>
+                    </div>
+                    <div class="col-6">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <p class="text-truncate">ComprovanteCorreiosR$66,95.pdf</p>
+                    </div>
+                    <div class="col-6">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" href="#adicionarArquivo2" data-toggle="modal" class="btn btn-primary btn-sm btn-wide">Avançar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Adicionar Mensagem Pt.II -->
+        <div class="modal fade" id="adicionarArquivo2" tabindex="-1" role="dialog" aria-labelledby="adicionarArquivo2" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="adicionarArquivoTitulo">Adicionar Arquivo</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12 mb-1">
+                      <label for="sigiloMensagem" class="pr-4">Categoria:</label>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="cat" type="radio" id="radioVitima" value="vitima" checked>
+                        <label class="form-check-label" for="radioVitima">Vítima</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="cat" type="radio" id="radioSinistro" value="sinistro">
+                        <label class="form-check-label" for="radioSinistro">Sinistro</label>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="row pt-3">
+                    <div class="col-1">
+                      <img src="img/delete-ico.png" alt="Excluir" data-toggle="tooltip" data-placement="top" title="Excluir">
+                    </div>
+                    <div class="col-11">
+                      <input type="text" class="form-control form-control-sm mb-2" id="nomeArquivo1" value="Relatório de Padronização de Honorários Médicos">
+                    </div>
+                    <div class="col-1">
+                      <img src="img/delete-ico.png" alt="Excluir" data-toggle="tooltip" data-placement="top" title="Excluir">
+                    </div>
+                    <div class="col-11">
+                      <input type="text" class="form-control form-control-sm mb-2" id="nomeArquivo1" value="2° Relatório de Despesas GLOSADAS">
+                    </div>
+                    <div class="col-1">
+                      <img src="img/delete-ico.png" alt="Excluir" data-toggle="tooltip" data-placement="top" title="Excluir">
+                    </div>
+                    <div class="col-11">
+                      <input type="text" class="form-control form-control-sm mb-2" id="nomeArquivo1" value="1° Relatório de Despesas">
+                    </div>
+                    <div class="col-1">
+                      <img src="img/delete-ico.png" alt="Excluir" data-toggle="tooltip" data-placement="top" title="Excluir">
+                    </div>
+                    <div class="col-11">
+                      <input type="text" class="form-control form-control-sm mb-2" id="nomeArquivo1" value="ComprovanteCorreiosR$66,95.pdf">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-wide">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Editar Mensagem -->
+        <div class="modal fade" id="editarArquivo" tabindex="-1" role="dialog" aria-labelledby="editarArquivo" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="editarArquivoTitulo">Editar Arquivo</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form class="form-row">
+                    <div class="form-group col-12 mb-1">
+                      <label for="sigiloMensagem" class="pr-4">Categoria:</label>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="cat" type="radio" id="radioVitima" value="vitima" checked>
+                        <label class="form-check-label" for="radioVitima">Vítima</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="cat" type="radio" id="radioSinistro" value="sinistro">
+                        <label class="form-check-label" for="radioSinistro">Sinistro</label>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="row pt-3">
+                    <div class="col-12">
+                      <input type="text" class="form-control form-control-sm mb-2" id="nomeArquivo1" value="Relatório de Padronização de Honorários Médicos">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm btn-wide">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Excluir Arquivo -->
+        <div class="modal fade" id="excluirArquivo" tabindex="-1" role="dialog" aria-labelledby="excluirArquivo" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row pt-4 pb-3">
+                    <p class="col-12 text-center">Deseja realmente excluir este arquivo?</p>
+                  </div>
+                  <div class="row py-2">
+                    <div class="col-6">
+                      <button type="button" class="btn btn-secondary btn-sm float-right">Cancelar</button>
+                    </div>
+                    <div class="col-6">
+                      <button type="button" class="btn btn-danger btn-sm">Confirmar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conteúdo Arquivos -->
+        <section class="container anexos">
+          <div class="row pb-3">
+            <div class="offset-10">
+            </div>
+            <div class="col-2">
+              <div class="float-right">
+                <button type="submit" class="btn btn-sm btn-primary" href="#adicionarArquivo" data-toggle="modal" role="button">Adicionar</button>
+              </div>
+            </div>
+          </div>
+          <ul class="nav nav-pills justify-content-center mb-3" id="catAnexos" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="catVitimaTab" data-toggle="pill" href="#catVitima" role="tab" aria-controls="catVitima" aria-selected="true">Vítima</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="catSinistroTab" data-toggle="pill" href="#catSinistro" role="tab" aria-controls="catSinistro" aria-selected="false">Sinistro</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="catAnexosConteudo">
+            <div class="tab-pane fade show active" id="catVitima" role="tabpanel" aria-labelledby="catVitimaTab">
+              <table class="table table-hover table-sm table-responsive-md">
+                <thead class="thead-dark">
+                  <tr class="d-flex">
+                    <th class="col-1">ID</th>
+                    <th class="col-2">Data</th>
+                    <th class="col-5">Nome</th>
+                    <th class="col-4 text-center">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="d-flex">
+                    <td class="col-1">1</td>
+                    <td class="col-2">04/03/2019</td>
+                    <td class="col-5 text-truncate">Relatório de Padronização de Honorários Médicos.pdf</td>
+                    <td class="col-4 text-center">
+                      <a href="#baixarArquivo" data-toggle="modal">Baixar <img class="pl-1" src="img/download-ico.png"></a>
+                      <a href="#editarArquivo" class="pl-4" data-toggle="modal">Editar <img class="pl-1" src="img/icon-edit.png"></a>
+                      <a href="#excluirArquivo" class="pl-4" data-toggle="modal">Excluir <img class="pl-1" src="img/del-ico.png"></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade" id="catSinistro" role="tabpanel" aria-labelledby="catSinistroTab">
+              Sinistro
+            </div>
+          </div>
+        </section>
       </div>
 
       <!-- MENSAGENS -->
@@ -476,10 +709,48 @@
             </div>
           </div>
         </div>
+        <!-- Modal Excluir Mensagem -->
+        <div class="modal fade" id="excluirMensagem" tabindex="-1" role="dialog" aria-labelledby="excluirMensagem" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row pt-4 pb-3">
+                    <p class="col-12 text-center">Deseja realmente excluir esta mensagem?</p>
+                  </div>
+                  <div class="row py-2">
+                    <div class="col-6">
+                      <button type="button" class="btn btn-secondary btn-sm float-right">Cancelar</button>
+                    </div>
+                    <div class="col-6">
+                      <button type="button" class="btn btn-danger btn-sm">Confirmar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- Conteúdo Mensagens -->
         <section class="container pb-5 timeline">
           <div class="row">
-            <div class="offset-10">
+            <div class="col-10">
+              <form class="form-row">
+                <div class="form-group col-7">
+                  <label for="buscaMensagem" class="sr-only">Pesquisar</label>
+                  <input type="text" class="form-control form-control-sm" id="buscaMensagem" placeholder="Pesquisar" data-toggle="tooltip" data-placement="top" title="Pesquisar">
+                </div>
+                <div class="form-group col-2">
+                  <label for="sigiloMensagem" class="sr-only">Sigilo</label>
+                  <select class="form-control form-control-sm" id="sigiloMensagem">
+                    <option>Não Sigiloso</option>
+                    <option>Sigiloso</option>
+                  </select>
+                </div>
+                <div class="form-group col-2">
+                  <button type="submit" class="btn btn-sm btn-primary">Pesquisar</button>
+                </div>
+              </form>
             </div>
             <div class="col-2">
               <div class="float-right">
@@ -514,7 +785,7 @@
                       <a href="#"><img src="img/pin-ico.png" alt="Anexo" class="pr-1">2° Relatório de Despesas GLOSADAS</a><br>
                       <a href="#"><img src="img/pin-ico.png" alt="Anexo" class="pr-1">1° Relatório de Despesas</a><br>
                     </p>
-                    <div class="float-right timeline-horario"><small class="text-muted"><a href="#" data-toggle="tooltip" data-placement="top" title="Excluir"><img src="img/trash-ico.png" class="px-1" alt="Excluir"></a><a href="#editarMensagem" data-toggle="modal" data-toggle="tooltip" data-placement="top" title="Editar"><img src="img/edit-ico.png" class="px-1" alt="Editar"></a>17:17</small></div>
+                    <div class="float-right timeline-horario"><span class="badge badge-danger mr-1">Sigiloso</span><small class="text-muted"><a href="#excluirMensagem" data-toggle="modal" data-toggle="tooltip" data-placement="top" title="Excluir"><img src="img/trash-ico.png" class="px-1" alt="Excluir"></a><a href="#editarMensagem" data-toggle="modal" data-toggle="tooltip" data-placement="top" title="Editar"><img src="img/edit-ico.png" class="px-1" alt="Editar"></a>17:17</small></div>
                   </div>
               </div>
             </div>

@@ -153,3 +153,11 @@ body {
   border: 2px dashed #007BFF;
   color: #007BFF;
 }
+
+.anexos .nav-link {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 1px solid transparent;
+}
