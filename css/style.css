@@ -154,7 +154,7 @@ body {
   color: #007BFF;
 }
 
-.anexos .nav-link {
+.anexos .nav-link, .notificacoes .nav-link {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   line-height: 1.5;
